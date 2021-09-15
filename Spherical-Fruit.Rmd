@@ -1,0 +1,150 @@
+---
+title: 'Spherical fruit - Emily Liang'
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+  html_notebook:
+    df_print: paged
+---
+
+
+```{r }
+#install.packages('tidyverse')
+#library('tidyverse')
+library('dplyr')
+library('rgl')  # for plot3d()
+library('MASS') # for mvrnorm()
+```
+
+
+![](dessert_IMG_4323.jpg)
+
+## I built the 3 layers of 3x3 dessert with top layer in blue, middle yellow and bottom green (I tried to mimic the colors in the photo but the same color is making the spheres less identifiable).I created mean vectors from muvec1 to muvec27, the same covmat for all, and pass to plot3d with a sample size of n=1000. The data will be "tighter" looking if there are more sample points, but it actually making the code run very slow, so I just kept n=1000. The sprinkles are made at the center, which is at cloud5. The sprinkles look more distinctive with type="l" inside plot3d and look more like the triangular chocolate sprinkle bits.
+
+## Once I built the base 3 layers cloud1, cloud2 and cloud3. I experimented with different muvec points. Then each layer is built with a specific ratio. For example, from muvec16, 17 and 18 to muvec19,20,21 is a +3.75, -2.5, -1.25. The same ratios will work for the next outer layer and the middle layer, for example: muvec10,11,12 to muvec25,26,27 has the same ratio as muvec16,17,18 to muvec19,20,21 at +3.75, -2.5, -1.25.
+
+## Issues I run into: subsetting the cloud so I can take out the extreme points. I was able to subset the cloud1, but the clouds after either doesn't make a difference or the whole entire sphere is cut off. 
+
+```{r}
+#Outer Layer1: 
+muvec1 <- c(0,0,0) #base muvec group
+muvec2 <- c(2.5,2.5,2.5) 
+muvec3 <- c(5,5,5) 
+
+muvec16 <- c(3.5,-2.5,-1) # +3.5, -2.5, -1
+muvec17 <- c(6,0,1.5) 
+muvec18 <- c(8.5,2.5,4)
+
+muvec19 <- c(7.25,-5,-2.25) # +3.75, -2.5, -1.25
+muvec20 <- c(9.75,-2.5,0.25) 
+muvec21 <- c(12.25,0,2.75)
+
+#Outer Layer2:
+muvec7 <- c(5,11,-3) #same to muvec3, +3, -4
+muvec8 <- c(2.5,8.5,-5.5)
+muvec9 <- c(0,6,-8)
+
+muvec10 <- c(8.5,8.5,-4) #+3.5, -2.5, -1
+muvec11 <- c(6,6,-6.5) 
+muvec12 <- c(3.5,3.5,-9) 
+
+muvec25 <- c(12.25,6,-5.25) #+3.75, -2.5, -1.25
+muvec26 <- c(9.75,3.5,-7.75) 
+muvec27 <- c(7.25,1,-10.25)
+
+
+#Middle Layer:
+muvec4 <- c(5,8,1) #same to muvec3, +3, -4
+muvec5 <- c(2.5,5.5,-1.5)
+muvec6 <- c(0,3,-4)
+
+muvec13 <- c(8.5,5.5,0) #+3.5, -2.5, -1
+muvec14 <- c(6,3,-2.5) 
+muvec15 <- c(3.5,0.5,-5) 
+
+muvec22 <- c(12.25,2.5,-1.25) # +3.75, -2.5, -1.25
+muvec23 <- c(9.75,0.5,-3.75) 
+muvec24 <- c(7.25,-2,-6.25)
+
+#Sprinkles:
+mu.sprinkles <- c(1,6.5,-1.5)
+covmat.sprinkles <- diag(c(2,2,2))
+cloud.sprinkles <- mvrnorm(n = 100, mu = mu.sprinkles, Sigma = covmat.sprinkles)
+plot3d(cloud.sprinkles, type = 'l', add = TRUE, radius = 0.3, col='orange')
+
+mu.sprinkles2 <- c(1,6.5,-1.5)
+covmat.sprinkles2 <- diag(c(2,2,2))
+cloud.sprinkles2 <- mvrnorm(n = 300, mu = mu.sprinkles2, Sigma = covmat.sprinkles2)
+plot3d(cloud.sprinkles2, type = 'l', add = TRUE, radius = 0.3, col='maroon')
+
+covmat <- diag(c(1,1,1)) 
+
+cloud1 <- mvrnorm(n = 1000, mu = muvec1, Sigma = covmat)
+cloud2 <- mvrnorm(n = 1000, mu = muvec2, Sigma = covmat) 
+cloud3 <- mvrnorm(n = 1000, mu = muvec3, Sigma = covmat) 
+cloud4 <- mvrnorm(n = 1000, mu = muvec4, Sigma = covmat)
+cloud5 <- mvrnorm(n = 1000, mu = muvec5, Sigma = covmat)
+cloud6 <- mvrnorm(n = 1000, mu = muvec6, Sigma = covmat)
+cloud7 <- mvrnorm(n = 1000, mu = muvec7, Sigma = covmat)
+cloud8 <- mvrnorm(n = 1000, mu = muvec8, Sigma = covmat)
+cloud9 <- mvrnorm(n = 1000, mu = muvec9, Sigma = covmat)
+cloud10 <- mvrnorm(n = 1000, mu = muvec10, Sigma = covmat)
+cloud11 <- mvrnorm(n = 1000, mu = muvec11, Sigma = covmat)
+cloud12 <- mvrnorm(n = 1000, mu = muvec12, Sigma = covmat)
+cloud13 <- mvrnorm(n = 1000, mu = muvec13, Sigma = covmat)
+cloud14 <- mvrnorm(n = 1000, mu = muvec14, Sigma = covmat)
+cloud15 <- mvrnorm(n = 1000, mu = muvec15, Sigma = covmat)
+cloud16 <- mvrnorm(n = 1000, mu = muvec16, Sigma = covmat)
+cloud17 <- mvrnorm(n = 1000, mu = muvec17, Sigma = covmat)
+cloud18 <- mvrnorm(n = 1000, mu = muvec18, Sigma = covmat)
+cloud19 <- mvrnorm(n = 1000, mu = muvec19, Sigma = covmat)
+cloud20 <- mvrnorm(n = 1000, mu = muvec20, Sigma = covmat)
+cloud21 <- mvrnorm(n = 1000, mu = muvec21, Sigma = covmat)
+cloud22 <- mvrnorm(n = 1000, mu = muvec22, Sigma = covmat)
+cloud23 <- mvrnorm(n = 1000, mu = muvec23, Sigma = covmat)
+cloud24 <- mvrnorm(n = 1000, mu = muvec24, Sigma = covmat)
+cloud25 <- mvrnorm(n = 1000, mu = muvec25, Sigma = covmat)
+cloud26 <- mvrnorm(n = 1000, mu = muvec26, Sigma = covmat)
+cloud27 <- mvrnorm(n = 1000, mu = muvec27, Sigma = covmat)
+
+
+plot3d(cloud1, type = 's', add = TRUE, radius = .15, col='dodgerblue3')
+plot3d(cloud2, type = 's', add = TRUE, radius = .15, col='dodgerblue3')
+plot3d(cloud3, type = 's', add = TRUE, radius = .15, col='dodgerblue3')
+
+plot3d(cloud4, type = 's', add = TRUE, radius = .15, col='dodgerblue3')
+plot3d(cloud5, type = 's', add = TRUE, radius = .15, col='dodgerblue3')
+plot3d(cloud6, type = 's', add = TRUE, radius = .15, col='dodgerblue3')
+
+plot3d(cloud7, type = 's', add = TRUE, radius = .15, col='dodgerblue3')
+plot3d(cloud8, type = 's', add = TRUE, radius = .15, col='dodgerblue3')
+plot3d(cloud9, type = 's', add = TRUE, radius = .15, col='dodgerblue3')
+
+plot3d(cloud10, type = 's', add = TRUE, radius = .15, col='gold')
+plot3d(cloud11, type = 's', add = TRUE, radius = .15, col='gold')
+plot3d(cloud12, type = 's', add = TRUE, radius = .15, col='gold')
+
+plot3d(cloud13, type = 's', add = TRUE, radius = .15, col='gold')
+plot3d(cloud14, type = 's', add = TRUE, radius = .15, col='gold')
+plot3d(cloud15, type = 's', add = TRUE, radius = .15, col='gold')
+
+plot3d(cloud16, type = 's', add = TRUE, radius = .15, col='gold')
+plot3d(cloud17, type = 's', add = TRUE, radius = .15, col='gold')
+plot3d(cloud18, type = 's', add = TRUE, radius = .15, col='gold')
+
+plot3d(cloud19, type = 's', add = TRUE, radius = .15, col='darkseagreen3')
+plot3d(cloud20, type = 's', add = TRUE, radius = .15, col='darkseagreen3')
+plot3d(cloud21, type = 's', add = TRUE, radius = .15, col='darkseagreen3')
+
+plot3d(cloud22, type = 's', add = TRUE, radius = .15, col='darkseagreen3')
+plot3d(cloud23, type = 's', add = TRUE, radius = .15, col='darkseagreen3')
+plot3d(cloud24, type = 's', add = TRUE, radius = .15, col='darkseagreen3')
+
+plot3d(cloud25, type = 's', add = TRUE, radius = .15, col='darkseagreen3')
+plot3d(cloud26, type = 's', add = TRUE, radius = .15, col='darkseagreen3')
+plot3d(cloud27, type = 's', add = TRUE, radius = .15, col='darkseagreen3')
+
+rglwidget()
+```
+
