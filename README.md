@@ -22,9 +22,10 @@
 
 
 ### Principal Components with Almanac Data
+- Editing
 
-- Ongoing
+### Clusters
+- Editing
 
 ### KNN
-- Ongoing
-
+- Editing
