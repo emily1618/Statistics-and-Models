@@ -6,7 +6,8 @@
 🍩 [Delicious treats with plot3d](#creating-delicious-treats-with-plot3d)
 
 🏠 [PCA with using the almanac](#principal-components-with-almanac-data)
-- [KNN](#knn)
+
+🐧 [Clusters with penguin dataset](#how-many-clusters-of-penguin-cuteness)
 
 
 ### Creating Delicious Treats with Plot3d
