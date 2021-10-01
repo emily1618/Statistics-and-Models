@@ -2,8 +2,13 @@
 
 ***Set of mini R problems that focuses statsitical methods  and regression analysis.***
 
+## Table of Contents
+- [Delicious treat with plot3d](#creating-a-delicious-treat-with-plot3d)
+- [PCA with using the almanac](#principal-components-with-almanac-data)
+- [KNN](#knn)
 
-### 🍰 Problem 1: Creating a Delicious Treat with Plot3d
+
+### Creating a Delicious Treat with Plot3d
 
 
 - Test with mutiple dataset and use ```plot3d()``` to  build the dessert
@@ -14,7 +19,10 @@
 ![cake3](https://user-images.githubusercontent.com/62857660/135530573-08ae7562-d26f-4906-8bb8-5d0214ad1c97.PNG)![cake1](https://user-images.githubusercontent.com/62857660/135530583-8b24b07f-0a9b-4436-b5a9-470bfd41a8d3.PNG)![cake2](https://user-images.githubusercontent.com/62857660/135531562-c9228c59-c786-40d0-8527-35157727761e.PNG)
 
 
+### Principal Components with Almanac Data
 
+- Ongoing
 
-
+### KNN
+- Ongoing
 
