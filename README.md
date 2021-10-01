@@ -22,10 +22,10 @@
 
 
 ### Principal Components with Almanac Data
-- Editing
+- Editing...
 
-### Clusters
-- Editing
+### How Many Clusters of Penguin Cuteness
+- Editing...
 
 ### KNN
-- Editing
+- Editing...
