@@ -1,4 +1,4 @@
-## 🍰 Delicious Treat with Plot3d
+## 🍰 Delicious Treats with Plot3d
 
 
 ![cake4](https://user-images.githubusercontent.com/62857660/135534908-bbad528b-695e-4079-a7b9-b50a30c52682.PNG)
@@ -18,4 +18,5 @@ plot3d(cloud.sprinkles, type = 'l', add = TRUE, radius = 0.3, col='orange')
 
 - Example outputs:
 
-![cake3](https://user-images.githubusercontent.com/62857660/135530573-08ae7562-d26f-4906-8bb8-5d0214ad1c97.PNG)![cake2](https://user-images.githubusercontent.com/62857660/135531562-c9228c59-c786-40d0-8527-35157727761e.PNG)
+![cake3](https://user-images.githubusercontent.com/62857660/135530573-08ae7562-d26f-4906-8bb8-5d0214ad1c97.PNG)![donut](https://user-images.githubusercontent.com/62857660/135559949-47e22486-7db4-4388-988d-7046c1209dc4.JPG)
+
