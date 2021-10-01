@@ -1,27 +1,10 @@
----
-title: 'hw3: plot3d(), multivariate normal dist, breakfast - Group LDA - Bonus Question'
-output:
-  html_document:
-    df_print: paged
-  html_notebook:
-    df_print: paged
-  pdf_document: default
----
-
 ```{r, setup}
 library(rgl)
 library(MASS)
-knitr::knit_hooks$set(webgl = hook_webgl)
 ```
-#### Breakfast all day bonus 
-Make a cloud which is approximately like a doughnut with icing and sprinkles.  It can't be exactly like a real doughnut and that's ok.  
-Your sprinkles can be points.  They can be more or less dense than in picture. Your icing doesn't have to run down the side.  Maybe it could be chocolate.  
 
-* Use `plot3d()` at each step to show the evolution of your cloud.  
-* To get the hole, you'll have to delete some points.  You could also delete points far from the center to make the cloud look more solid,less ragged.  You don't have to, but it might look better.  
-* A complete solution will combine words, code, and plots.  
-* Solutions with only words will be considered for partial credit.  
-* Instead of a doughnut you could go for a hamburger.  Or whatever. 
+Make a cloud like a doughnut with icing and sprinkles.  
+
 ```{r}
 # first layer
 muC1 <- c(0,0,0)
@@ -58,47 +41,4 @@ plot3d(C3h_b,type='s',radius = 0.09,col='blue',add=T)
 plot3d(C3h_y,type='s',radius = 0.09,col='yellow',add=T)
 plot3d(C3h_g,type='s',radius = 0.09,col='green',add=T)
 rglwidget()
-
-
-# 
-# colnames(cloud1) <- c('x', 'y', 'z')
-# colnames(cloud2) <- colnames(cloud1)
-# colnames(cloud3) <- colnames(cloud1)
-# colnames(cloud4) <- colnames(cloud1)
-# colnames(cloud5) <- colnames(cloud1)
-# colnames(cloud6) <- colnames(cloud1)
-# colnames(cloud7) <- colnames(cloud1)
-# colnames(cloud8) <- colnames(cloud1)
-# colnames(cloud9) <- colnames(cloud1)
-# colnames(cloud10) <- colnames(cloud1)
-# colnames(cloud11) <- colnames(cloud1)
-# colnames(cloud12) <- colnames(cloud1)
-# colnames(cloud13) <- colnames(cloud1)
-# colnames(cloud14) <- colnames(cloud1)
-# colnames(cloud15) <- colnames(cloud1)
-# colnames(cloud16) <- colnames(cloud1)
-# colnames(cloud17) <- colnames(cloud1)
-# colnames(cloud18) <- colnames(cloud1)
-# colnames(cloud19) <- colnames(cloud1)
-# colnames(cloud20) <- colnames(cloud1)
-# colnames(cloud21) <- colnames(cloud1)
-# colnames(cloud22) <- colnames(cloud1)
-# colnames(cloud23) <- colnames(cloud1)
-# colnames(cloud24) <- colnames(cloud1)
-# colnames(cloud25) <- colnames(cloud1)
-# colnames(cloud26) <- colnames(cloud1)
-# colnames(cloud27) <- colnames(cloud1)
-
-#cloud.all <- data.frame(cloud1, cloud2, cloud3, cloud4,cloud5, cloud6, cloud7, cloud8, cloud9, cloud10,cloud11,cloud12, cloud13, cloud14, cloud15, cloud16, cloud17, cloud18, cloud19, cloud20, cloud21,cloud22,cloud23,cloud24,cloud25,cloud26,cloud27)  
-
-#cloud1 <- data.frame(cloud1)
-#cloud1 <- subset(cloud1, x^2 + y^2 + z^2 <= 5)
-#cloud2 <- data.frame(cloud2)
-#cloud2 <- subset(cloud2, x^2 + y^2 + z^2 <= 35)
-#cloud3 <- data.frame(cloud3)
-#cloud3 <- subset(cloud3, x^2 + y^2 + z^2 <= 155)
-
-#axlim = c(-10,10)
-
-#plot3d(cloud.all, type = 'n', radius = .5, xlim = axlim, ylim=axlim, zlim=axlim)
 ```
