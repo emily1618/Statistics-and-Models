@@ -28,7 +28,7 @@
 - Check influential and leverage points with ```cook.distance``` 
 - Adding quadratic terms and remove outliers to improve the model.
 - Build a standard deviation table using dplyr and Scale-Location model to check for variance changes.
-- Square root the data to transform the data and build a prediction table.
+- Transform the data to further improve the model and build a prediction table using ```predict.lm```
 - [View the project here ✔](https://github.com/xtenix88/Statistical-Learning-in-R/tree/main/Regression)
 
 ### Principal Components with Almanac Data
