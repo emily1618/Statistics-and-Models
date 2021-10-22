@@ -38,8 +38,7 @@ predict.lm(coffee.mod, newdata = data.frame(Baristas = c(2)), interval = 'pred',
 predict.lm(coffee.mod, newdata = data.frame(Baristas = c(8)), interval = 'pred', level = 0.95)
 ```
 
-#### Explanation for the original mode plot using ```plot(airfares)```:
-ORIGINAL model:
+#### Explanation for the ORIGINAL model plot using ```plot(airfares)```:
 1. From the residuals vs fitted model, it's not a straight line, so between predictor and response does not show a linear relationship. Perhaps an another model such as a quadratic model will explaining the data in this set better. 
 2. Second plot the Normal Q-Q shows the residuals are mostly normally distributed, with some points departed off in the beginning of the line. 
 3. Good to have a horizontal line (homoscedasticity) on Scale-Location model. Residuals are wider spread at the middle of the plot. The assumption of the variance is constant is not as "valid". 
