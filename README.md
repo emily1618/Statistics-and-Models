@@ -5,6 +5,8 @@
 ## Table of Contents
 🍩 [Delicious treats with plot3d](#creating-delicious-treats-with-plot3d)
 
+📈   [Improve linear regression model and identify leverage points](#improve-linear-regression-model-and-identify-leverage-points)
+
 🏠 [PCA with using the almanac](#principal-components-with-almanac-data)
 
 🐧 [Clusters with penguin dataset](#how-many-clusters-of-penguin-cuteness)
@@ -20,6 +22,14 @@
 
 ![cake3](https://user-images.githubusercontent.com/62857660/135530573-08ae7562-d26f-4906-8bb8-5d0214ad1c97.PNG)![cake1](https://user-images.githubusercontent.com/62857660/135530583-8b24b07f-0a9b-4436-b5a9-470bfd41a8d3.PNG)![donut](https://user-images.githubusercontent.com/62857660/135560063-5c4ade4d-0840-42c6-9f69-f38a7a0235b7.JPG)
 
+### Improve Linear Regression Model and Identify Leverage Points
+
+- Examine the independent and dependent variables by building a linear regression model using  ```lm()```
+- Check influential and leverage points with ```cook.distance``` 
+- Adding quadratic terms and remove outliers to improve the model.
+- Build a standard deviation table using dplyr and Scale-Location model to check for variance changes.
+- Square root the data to transform the data and build a prediction table.
+- [View the project here ✔](https://github.com/xtenix88/Statistical-Learning-in-R/tree/main/Dessert)
 
 ### Principal Components with Almanac Data
 - Editing...
