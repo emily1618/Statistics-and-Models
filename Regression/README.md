@@ -16,7 +16,7 @@ Highlights:
 
 
 ## Airfare Model
-#### Step 1: Build a slr using ```lm()```
+#### Step 1: Build a regression model using ```lm()```
 ```
 airfares <- read.delim("airfares.txt")
 fare.mod <- lm(Fare~Distance, data=airfares)
