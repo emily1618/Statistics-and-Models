@@ -71,6 +71,7 @@ summary(fare2.mod)
 ```
 ![3](https://user-images.githubusercontent.com/62857660/138510973-2074f789-6334-45fb-91da-5d92cb8fa607.JPG)
 
+#
 
 ## Coffee Model
 #### Step 1: Build a slr using ```lm()``` and compute 95% prediction intervals for Y = Customers when x=Baristas=2 and when x=Baristas=8
