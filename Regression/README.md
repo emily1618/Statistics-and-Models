@@ -20,7 +20,6 @@ Highlights:
 ```
 airfares <- read.delim("airfares.txt")
 fare.mod <- lm(Fare~Distance, data=airfares)
-plot(fare.mod)
 ```
 #### Step 2: Check for leverage points using standardized residual table + cook distance:
 ```
@@ -35,7 +34,12 @@ leverage_points <- subset(table, leverage > (4/nrow(airfares)))
 outliers <- subset(leverage_points, abs(StdResiduals) > 2)
 subset(cooks.distance(fare.mod), cooks.distance(fare.mod) > 4/(nrow(airfares)- 2)) #pont 13 and 17 are outliers
 ```
+![2](https://user-images.githubusercontent.com/62857660/138510831-edc4f8b3-c2d3-450a-bc36-bdccf1adfcaf.JPG)
+
 #### Step 3: Examine the model and ```plot()```:
+```
+plot(fare.mod)
+```
 1. From the residuals vs fitted model, it's not a straight line, so between predictor and response does not show a linear relationship. Perhaps an another model such as a quadratic model will explaining the data in this set better. 
 2. Second plot the Normal Q-Q shows the residuals are mostly normally distributed, with some points departed off in the beginning of the line. 
 3. Good to have a horizontal line (homoscedasticity) on Scale-Location model. Residuals are wider spread at the middle of the plot. The assumption of the variance is constant is not as "valid". 
@@ -57,12 +61,15 @@ which(rstandard(fare2.mod)< -2 | rstandard(fare2.mod)>2) #shows which # will be 
 subset(cooks.distance(fare2.mod), cooks.distance(fare2.mod) > 4/(nrow(fare2)- 2))#On the Cook's distance plot, we discovered an another outlier/bad leverage point at 15. 
 
 ```
+![2](https://user-images.githubusercontent.com/62857660/138511042-60bd5ee7-8f5b-4d59-9080-9100879cb828.JPG)
+
 
 #### Step 5: Obtain R-Squared from summary to see if we improve the model by removing outliers and/or add quadratic terms. It seems so because the original model seem to fit the data well. However, after removing the 2 outliers, we improved the R-Squared from 99.4% (original model) to 99.89% (new model). The line is straighter for the new model on Scale-Location mode, the variance stays more constant and doesn't have a steep uphill toward the end of the line compared to the original model. 
 ```
 summary(fare.mod)
 summary(fare2.mod)
 ```
+![3](https://user-images.githubusercontent.com/62857660/138510973-2074f789-6334-45fb-91da-5d92cb8fa607.JPG)
 
 
 ## Coffee Model
