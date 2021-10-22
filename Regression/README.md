@@ -1,7 +1,7 @@
 # SLR Model, Model Improvement, Leverage Points/Outliers, Confidence Level, and Prediction Intervals
 
 Highlights:
-- Examine the independent and dependent variables by building a linear regression model using  ```lm()```
+- Examine the predictor and response variables by building a linear regression model using  ```lm()``` and ```plot()```
 - Check influential and leverage points with ```cook.distance``` 
 - Adding quadratic terms and remove outliers to improve the model.
 - Build a standard deviation table using dplyr and Scale-Location model to check for variance changes.
