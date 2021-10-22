@@ -1,0 +1,249 @@
+---
+title: 'EmilyLiang-Regression Improvement and Leverage Points '
+output:
+  html_document:
+    df_print: paged
+---
+```{r}
+# install.packages("dplyr")
+# install.packages("magrittr")
+library(dplyr)
+library(magrittr) # for the pipe
+```
+
+### Problem 1
+(i) model validity questions which are answered by looking for patterns and (ii) a hunt for suspicious data points which need to be investigated and MAYBE removed.   The removing happens in part (b). In part (a) it's enough to identify the remarkable data points. 
+
+##a
+```{r}
+par(mfrow=c(2,2))
+airfares <- read.delim("airfares.txt")
+head(airfares)
+fare.mod <- lm(Fare~Distance, data=airfares)
+plot(fare.mod)
+
+
+#Leverage and Standardized Residuals table
+table <- data.frame(Case = 1:nrow(airfares), 
+                    Fare = airfares$Fare,
+                    Distance = airfares$Distance,
+                    Residuals = fare.mod$residuals,
+                    leverage = lm.influence(fare.mod)$hat,
+                    StdResiduals = rstandard(fare.mod))
+table
+
+leverage_points <- subset(table, leverage > (4/nrow(airfares)))
+leverage_points
+
+outliers <- subset(leverage_points, abs(StdResiduals) > 2)
+outliers
+
+# check leverage points using Cooks Distance
+subset(cooks.distance(fare.mod), cooks.distance(fare.mod) > 4/(nrow(airfares)- 2))
+```
+
+#ORIGINAL model:
+1: From the residuals vs fitted model, it's not a straight line, so between predictor and response does not show a linear relationship. Perhaps an another model such as a quadratic model will explaining the data in this set better. 
+2: Second plot the Normal Q-Q shows the residuals are mostly normally distributed, with some points departed off in the beginning of the line. 
+3: Good to have a horizontal line (homoscedasticity) on Scale-Location model. Residuals are wider spread at the middle of the plot. The assumption of the variance is constant is not as "valid". 
+4: Two points are not within the Cook's distance in the Residuals vs Leverage model, those will be the influential outliers. Checking the the standardized residuals, we will find the 2 leverage points on 13 and 17:
+If you identified trouble points in part (a), you can **assume** the "investigation" turned up legit evidence and drop these data points.  Some curviness will remain after dropping the bad points, so try adding a quadratic term to the model.  The easiest way is to add a predictor to the data.frame as shown below. 
+
+##b
+```{r}
+par(mfrow=c(2,2))
+
+#Data 13 and 17 are data entry errors (fake reason). We will improve the model by removing the two outliers (13 and 17). Then we will add the quadratic term to the model. 
+
+#Step 1: Removing the 13 and 17 and compare again:
+fare2 <- filter(airfares, !(City %in% c(13,17)) )
+fare2.mod <- lm(Fare~Distance, data=fare2)
+
+
+#Step 2: Adding another predictor
+fare2 <- mutate(fare2, Distance2 = Distance^2)  #adding quadratic term to data.frame
+fare2.mod <- lm(Fare ~ Distance + Distance2, data = fare2) #adding quadratic term to model
+
+#Step 3: Check and drop outliers
+which.max((hatvalues(fare2.mod))) #shows 13 with the largest leverage statistics
+which(rstandard(fare2.mod)< -2 | rstandard(fare2.mod)>2) #shows 13 and 17 even adding the quadratic term
+
+
+#Step 4: Plot the diagnostic models
+plot(fare2.mod)
+
+#Step 5: Maybe check again to see if any new outliers
+which.max((hatvalues(fare2.mod))) 
+which(rstandard(fare2.mod)< -2 | rstandard(fare2.mod)>2) 
+
+#Step 6: Improvements:
+summary(fare.mod)
+summary(fare2.mod)
+
+# check leverage points using Cooks Distance
+subset(cooks.distance(fare2.mod), cooks.distance(fare2.mod) > 4/(nrow(fare2)- 2))
+#On the Cook's distance plot, we discovered an another outlier/bad leverage point at 15. 
+
+```
+#The Original model seem to fit the data well. However, after removing the 2 outliers, we improved the R-Squared from 99.4% (original model) to 99.89% (new model).
+#The line is straighter for the new model on Scale-Location mode, the variance stays more constant and doesn't have a steep uphill toward the end of the line compared to the original model. 
+
+
+### Problem 2: It's about the assumption of constant variance (homoscedacity) which is built into SLR.  
+
+A typical Starbucks location has 1 or 2 baristas making drinks.  The company is considering opening larger cafes with more machines and more baristas.  The file **coffee.txt** contains 53 days of test data collected by Starbucks in a city where some larger stores are already open.  On each day they observed a different store during its busiest 20-minute period and recorded $x=$ the number of baristas working and $Y=$ the number of customers served. They want a regression model to predict the number of customers as a function of the number of baristas.  In particular they wish to predict the number of customers which can be served by 2 baristas and by 8 baristas.   
+
+* Fit the model and compute 95% prediction intervals for $Y = Customers$ when $x=Baristas= 2$ and when $x=Baristas=8$
+```{r}
+coffee <- read.delim("coffee.txt")
+coffee.mod <- lm(Customers~Baristas, data=coffee)
+plot(Customers~Baristas, data=coffee)
+abline(coffee.mod)
+
+
+
+predict.lm(coffee.mod, newdata = data.frame(Baristas = c(2)), interval = 'pred', level = 0.95)
+predict.lm(coffee.mod, newdata = data.frame(Baristas = c(8)), interval = 'pred', level = 0.95)
+```
+
+* The regression model assumes that the variance of the errors is the same for every value of the predictor variable $x$.  Check this assumption four ways: 
+
+* There are multiple observations of $Y = Customers$ for each value of $x = Baristas$ so compute the standard deviation of $Y$ for each value of $x$.  
+```{r}
+StdDev_Table <- coffee %>% group_by(Baristas) %>% summarise(Numbers_of_Count = n(), StdDev_Customers = sd(Customers))
+
+#checking for data error, we see 1 to 8 baristas, but no 7. Use the following to check if there is any data error or why 7 baristas is missing: 
+coffee%>% filter(Baristas==7)
+
+#Standard Deviation table
+StdDev_Table
+```
+
+* Plot the standardized residuals versus $x = Baristas$.
+```{r}
+StdResiduals <- rstandard(coffee.mod)
+std_res_vs_baristas <- data.frame(coffee$Baristas, StdResiduals)
+plot(std_res_vs_baristas, xlab="Baristas", ylab="Standardized Residuals", pch=19)
+grid()
+```
+  
+* Compute $r=$ the square root of the absolute value of the standardized residuals, and fit the  SLR model of $r$ on $x = Baristas$.  Plot $r$ versus $x = Baristas$ and overlay the regression line.  (see Figure 3.17 for an example)
+```{r}
+
+r <- abs(StdResiduals)^0.5
+Baristas <- coffee$Baristas
+r_vs_Baristas <- data.frame(Baristas, r)
+r_vs_Baristas.mod <- lm(r~Baristas, data=r_vs_Baristas)
+plot(r_vs_Baristas, pch=19)
+abline(r_vs_Baristas.mod, col=2)
+grid()
+```
+  
+* Plot $r$ versus the fitted values $\hat y$.  The lower-left plot in Figure 3.18 (title Scale-Location) is an example.  
+```{r}
+coffee.mod <- lm(Customers ~ Baristas, data=coffee)
+
+#Plotting just the Scale-Location 
+plot(coffee.mod, which=3)
+
+```
+  
+* All four checks should show that variance of $Y$ increases with $x = Baristas$. Result explanations:
+
+#From the standard deviation table, we can see that the standard deviation of customers increases as x, number of baristas increases. This is a clear sign that the variance of Y increase with the  increase in number of baristas. 
+#From the standardized residuals versus x plot, it is evident that the variability in the standardized residuals tend to increase with the number of baristas. It also has a funnel shape, suggesting the error variance is not constant. 
+#From r vs x plot, we can see from the fitting line that there is an increasing trend, which suggests the that the variance if errors increases with x.  
+#Similarly, from the scale-location plot, we can see that the variance of the errors increases with the increase in
+
+
+We've shown that the SLR assumption of constant variance **does not hold** and that means our results are no good. One way to solve this problem is by transforming the data.  That's the next problem.  
+
+### Problem 3
+
+Use `dplyr` to add two columns to `coffee`:
+$$ sqrtbaristas = \sqrt{Baristas} \quad and \quad sqrtcustomers = \sqrt{Customers}$$
+```{r}
+coffee1 <- coffee %>% mutate(sqrtbaristas = Baristas^0.5, sqrtcustomers= Customers^0.5)
+coffee1
+```
+
+
+Repeat the steps of the previous problem using the transformed data:
+
+* Fit the model $sqrtcustomers = \beta_0 + \beta_1 sqrtbaristas + e$.  
+```{r}
+coffee1.mod <- lm(sqrtcustomers~sqrtbaristas, data=coffee1)
+summary(coffee1.mod)
+```
+
+* Use this model to compute 95% prediction intervals for $Y = Customers$ when $x=Baristas= 2$ and when $x=Baristas=8$.  
+```{r}
+predict_2<-predict.lm(coffee1.mod, newdata = data.frame(sqrtbaristas = c(sqrt(2))), interval = 'pred', level = 0.95)
+predict_2 <- (predict_2)^2
+predict_2
+predict_8<-predict.lm(coffee1.mod, newdata = data.frame(sqrtbaristas = c(sqrt(8))), interval = 'pred', level = 0.95)
+predict_8<-(predict_8)^2
+predict_8
+
+```
+
+* Check the assumption of constant variance for the model with transformed data using the same four checks listed in the previous problem.  Things should look better now.  Result explanation: 
+```{r}
+#Check 1: Std Dev Table
+StdDev_Table1 <- coffee1 %>% group_by(sqrtbaristas) %>% summarise(Numbers_of_Count = n(), StdDev_Customers = sd(sqrtcustomers))
+StdDev_Table1
+
+#Check 2: Standardized Residuals vs Baristas
+StdResiduals1 <- rstandard(coffee1.mod)
+r1 <- abs(StdResiduals1)^0.5
+
+std_res_vs_baristas1 <- data.frame(coffee1$sqrtbaristas, StdResiduals1)
+plot(std_res_vs_baristas1, xlab="square root of Baristas", ylab="Standardized Residuals", pch=19)
+grid()
+
+#Check 3: r vs Baristas
+Baristas1 <- coffee1$sqrtbaristas
+r_vs_Baristas1 <- data.frame(Baristas1, r1)
+r_vs_Baristas1.mod <- lm(r1~Baristas1, data=r_vs_Baristas1)
+plot(r_vs_Baristas1, pch=19)
+abline(r_vs_Baristas1.mod, col=2)
+grid()
+
+#Check 4: r vs y_hat
+coffee1.mod <- lm(sqrtcustomers ~ sqrtbaristas, data=coffee1)
+ 
+plot(coffee1.mod, which=3)
+
+
+```
+
+#Explanation:
+The standard deviation table shows that standard deviation of Y (square root of customers) do not follow a trend. 
+This time the standard residual vs square root of Baristas plot did not have the funnel shape, indicating that the variability remains somewhat constant. 
+In the r vs x (square root of Baristas) plot, the residuals do not follow a trend, and appear to be random. 
+The line on the Scale-Location plot also looks more straight instead of a steeper curve up in the end. The residuals are randomly scattered around the fit line with roughly similar variability at all fitted values.
+These results suggest that the homoscedasticity assumption is valid.
+
+Finally, make a data.frame to compare the predictions and PI's from the two models.  
+```{r}
+
+raw_2 <- predict.lm(coffee.mod, newdata = data.frame(Baristas = c(2)), interval = 'pred', level = 0.95)
+raw_8 <- predict.lm(coffee.mod, newdata = data.frame(Baristas = c(8)), interval = 'pred', level = 0.95)
+
+transformed_2 <- predict.lm(coffee1.mod, newdata = data.frame(sqrtbaristas = c(sqrt(2))), interval = 'pred', level = 0.95)
+transformed_2 <- (transformed_2)^2
+transformed_8 <- predict.lm(coffee1.mod, newdata = data.frame(sqrtbaristas = c(sqrt(8))), interval = 'pred', level = 0.95)
+transformed_8 <- (transformed_8)^2
+
+x_Baristas <- c("2(transformed data)", "2(raw data)", "8(transformed data)", "8(raw data)")
+table_predict <- round(rbind(transformed_2,raw_2,transformed_8,raw_8),0)
+table_predict <- data.frame(cbind(x_Baristas, table_predict))
+colnames(table_predict)<- c("x,Baristas", "Prediction", "Lower Limit", "Upper Limit")
+rownames(table_predict ) <- NULL
+table_predict 
+
+
+
+```
+
+
