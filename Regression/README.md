@@ -1,7 +1,7 @@
 ## 🍰 Delicious Treats with Plot3d
 
 
-![cake4](https://user-images.githubusercontent.com/62857660/135534908-bbad528b-695e-4079-a7b9-b50a30c52682.PNG)
+![000005](https://user-images.githubusercontent.com/62857660/138489170-b701b844-6006-4af6-be57-bb062a9fd928.png)
 
 - Test with mutiple dataset and use ```plot3d()``` to  build the dessert.
 - Use covariance matrix ```diag()``` in the context of linear algebra in generating data.
