@@ -6,7 +6,7 @@
 - Build a standard deviation table using dplyr and Scale-Location model to check for variance changes.
 - Transform the data to further improve the model and build a prediction table using ```predict.lm```
 
-![000005](https://user-images.githubusercontent.com/62857660/138492173-639a5cf5-1acf-434d-affc-a12be3b5c00c.png)
+![000005 (1)](https://user-images.githubusercontent.com/62857660/138492474-fe2ab316-ff91-4d60-a13f-a66fdc0f5485.png)
 
 #### Explanation for the ORIGINAL airfares model plot using ```plot(airfares)```:
 1. From the residuals vs fitted model, it's not a straight line, so between predictor and response does not show a linear relationship. Perhaps an another model such as a quadratic model will explaining the data in this set better. 
