@@ -38,3 +38,5 @@ predict.lm(coffee.mod, newdata = data.frame(Baristas = c(2)), interval = 'pred',
 predict.lm(coffee.mod, newdata = data.frame(Baristas = c(8)), interval = 'pred', level = 0.95)
 ```
 
+### Example 95% prediction interval table output
+![table](https://user-images.githubusercontent.com/62857660/138491613-fd63cb6e-9e08-4ffa-a62c-d29ff8c50bc7.JPG)
