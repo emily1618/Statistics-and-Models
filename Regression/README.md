@@ -3,10 +3,11 @@
 
 ![000005](https://user-images.githubusercontent.com/62857660/138489170-b701b844-6006-4af6-be57-bb062a9fd928.png)
 
+- Examine the independent and dependent variables by building a linear regression model using  ```lm()```
 - Check influential and leverage points with ```cook.distance``` 
 - Adding quadratic terms and remove outliers to improve the model.
 - Build a standard deviation table using dplyr and Scale-Location model to check for variance changes.
-- Transform the data to further improve the model and build a prediction table using ```predict.lm```.
+- Transform the data to further improve the model and build a prediction table using ```predict.lm```
 
 
 #### Code sample for checking for leverage points, outliers and influential points:
