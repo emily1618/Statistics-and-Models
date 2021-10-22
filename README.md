@@ -24,6 +24,8 @@
 
 ![cake3](https://user-images.githubusercontent.com/62857660/135530573-08ae7562-d26f-4906-8bb8-5d0214ad1c97.PNG)![cake1](https://user-images.githubusercontent.com/62857660/135530583-8b24b07f-0a9b-4436-b5a9-470bfd41a8d3.PNG)![donut](https://user-images.githubusercontent.com/62857660/135560063-5c4ade4d-0840-42c6-9f69-f38a7a0235b7.JPG)
 
+#
+
 ### Improve Linear Regression Model and Identify Leverage Points
 
 - Examine the independent and dependent variables by building a linear regression model using  ```lm()```
@@ -35,6 +37,7 @@
 - 
 ![000005 (1)](https://user-images.githubusercontent.com/62857660/138512572-8562c324-6acc-40c1-9600-c8672bb99d73.png)
 
+#
 
 ### Principal Components with Almanac Data
 - Editing...
