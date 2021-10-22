@@ -5,11 +5,13 @@
 ## Table of Contents
 🍩 [Delicious treats with plot3d](#creating-delicious-treats-with-plot3d)
 
-📈   [Improve linear regression model and identify leverage points](#improve-linear-regression-model-and-identify-leverage-points)
+📈  [Improve linear regression model and identify leverage points](#improve-linear-regression-model-and-identify-leverage-points)
 
 🏠 [PCA with using the almanac](#principal-components-with-almanac-data)
 
 🐧 [Clusters with penguin dataset](#how-many-clusters-of-penguin-cuteness)
+
+🏘 [K Nearest Neighbor](#knn)
 
 
 ### Creating Delicious Treats with Plot3d
@@ -30,6 +32,9 @@
 - Build a standard deviation table using dplyr and Scale-Location model to check for variance changes.
 - Transform the data to further improve the model and build a prediction table using ```predict.lm```
 - [View the project here ✔](https://github.com/xtenix88/Statistical-Learning-in-R/tree/main/Regression)
+- 
+![000005 (1)](https://user-images.githubusercontent.com/62857660/138512572-8562c324-6acc-40c1-9600-c8672bb99d73.png)
+
 
 ### Principal Components with Almanac Data
 - Editing...
