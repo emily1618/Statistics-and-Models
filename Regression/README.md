@@ -195,3 +195,88 @@ rownames(table_predict ) <- NULL
 table_predict 
 ```
 ![table](https://user-images.githubusercontent.com/62857660/138491862-e5465c83-d43c-4ab8-91a3-0b679b2da7d8.JPG)
+
+#
+
+## College Model
+Problem: The data contains a number of variables for 777 different universities and colleges in the US. Examine the numerical summary of the variables in the data set and create a new qualitative variable to check the proportion of students coming from the top 10 % of their high school classes exceeds 50 %. 
+
+_Objective: Provide a summary for the variables in the dataset. Using pairs scatterplot matrix, historgram and boxplots to explore the data._
+
+![3](https://user-images.githubusercontent.com/62857660/138609533-8675c95e-c5c9-4b81-968b-e5c3f48c373b.JPG)
+
+#### Step 1: Use ```pairs()``` create a scatterplot matrix for the first 10 variables. Need to turn Private into a factor because it's not a numeric data. 
+```{r}
+college$Private <- as.factor(college$Private)
+pairs(college[,1:10], pch= ".")
+```
+![image](https://user-images.githubusercontent.com/62857660/138609664-02b4640b-aeba-4b14-a263-5680707ba6ab.png)
+
+#### Step 2: Create boxplots to compare different variables
+```
+plot(college$Private,college$Outstate,
+     xlab = "Private",
+     ylab = "Out of State Tuition",
+     main = "Boxplots of Outstate vs Private",
+     col = c("green3","red"))
+
+plot(college$Elite,college$Outstate,
+     xlab = "Elite",
+     ylab = "Out of State Tuition",
+     main = "Boxplots of Outstate vs Elite",
+     col = c("steelblue","tan")
+       )
+```
+![image](https://user-images.githubusercontent.com/62857660/138609714-01227a10-7f98-4f46-8cf6-14084f9d1e93.png)
+
+
+#### Step 3: Create historgrams to examine the variables stat from acceptance rate to book cost to Phd percentage:
+```
+par(mfrow=c(3,2))
+hist(college$Apps, breaks = 10, main = "Number of Applications Received", col = 2)
+hist(college$Accept, breaks = 10, main = "Number of Applications Accepted", col = 3)
+hist(college$Enroll, breaks = 10, main = "Number of New Students Enrolled", col = 4)
+
+hist(college$Books, breaks = 25,col = 4, main = "Books")
+hist(college$Room.Board, breaks = 10, col = 5, main = "Room and Board Costs")
+hist(college$Expend, breaks = 20, col = 6, main = "Instructional Expenditure per Student")
+
+hist(college$S.F.Ratio, breaks = 20, main = "Student/Faculty Ratio", col = 4)
+hist(college$PhD, breaks = 50, main = "Percent of Faculty with PhD's", col = 5)
+hist(college$Terminal, breaks = 50, main = "Percent of Faculty with Terminal Degree", col = 6)
+```
+
+![image](https://user-images.githubusercontent.com/62857660/138609774-f20a9c91-dbb9-4879-831a-53f2484a3bce.png)
+
+
+#### Step 4: Check for data error and outliers 
+Grad rate is 118%, which may be an error because it is more than 100%. 
+```
+college[college$Grad.Rate > 100,]
+```
+![4](https://user-images.githubusercontent.com/62857660/138609987-77478cbe-6592-416f-9cc6-aebb520d6d18.JPG)
+
+There is a college that has a very high Student/Faculty Ratio compared to the other colleges in the data set
+```
+hist(college$S.F.Ratio, breaks = 100, main = "Student/Faculty Ratio", col = 4)
+boxplot(college$S.F.Ratio)
+college[college$S.F.Ratio > 30,]
+```
+![image](https://user-images.githubusercontent.com/62857660/138610088-15b4660c-963b-4c2a-a8cc-8ea9f8df9149.png)
+
+There is an extreme outlier: one college received many more applications than the other colleges.
+
+```
+boxplot(college$Apps)
+college[college$Apps > 30000,]
+```
+![image](https://user-images.githubusercontent.com/62857660/138610124-a00fc16c-5d33-447d-85ad-5b3f6ef6baad.png)
+
+#### Step 5: Regression on different variables and provide a brief explanation on the findings:
+
+Because a small p-value, we can reject the null and declare there is a relationship between applicant accepted and final enrollment. The model explains 83.11% of the variability of the response data around its mean.The higher this number, the better the model explains the data.
+```
+enrollment <- lm(Enroll~Accept, data=college)
+```
+![image](https://user-images.githubusercontent.com/62857660/138610174-b0d7c0eb-1a4e-4cf6-883b-12dd76530b34.png)
+
