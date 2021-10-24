@@ -232,7 +232,7 @@ plot(college$Elite,college$Outstate,
 ![image](https://user-images.githubusercontent.com/62857660/138609714-01227a10-7f98-4f46-8cf6-14084f9d1e93.png)
 
 
-#### Step 3: Create historgrams to examine the variables stat from acceptance rate to book cost to Phd percentage:
+#### Step 3: Create historgrams to examine the variables stat from acceptance rate to book cost to Phd percentage
 ```
 hist(college$Apps, breaks = 10, main = "Number of Applications Received", col = 2)
 hist(college$Accept, breaks = 10, main = "Number of Applications Accepted", col = 3)
@@ -272,7 +272,7 @@ college[college$Apps > 30000,]
 ```
 ![image](https://user-images.githubusercontent.com/62857660/138610124-a00fc16c-5d33-447d-85ad-5b3f6ef6baad.png)
 
-#### Step 5: Regression on different variables and provide a brief explanation on the findings:
+#### Step 5: Regression on different variables and provide a brief explanation on the findings
 
 Because a small p-value, we can reject the null and declare there is a relationship between applicant accepted and final enrollment. The model explains 83.11% of the variability of the response data around its mean.The higher this number, the better the model explains the data.
 ```
