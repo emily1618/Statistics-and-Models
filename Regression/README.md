@@ -275,5 +275,7 @@ plot(Enroll~Accept, data=college, col=4, pch=20, main='Regression for Enroll on 
 abline(lm(Enroll~Accept, data=college), col="red") 
 grid(lwd=1)
 ```
+![5](https://user-images.githubusercontent.com/62857660/138610460-666b1980-3b60-47bc-be32-5b4153f95227.JPG)
+
 ![image](https://user-images.githubusercontent.com/62857660/138610260-12179a8f-8723-4bfa-bf2d-66849ced3389.png)
 
