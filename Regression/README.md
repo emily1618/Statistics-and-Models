@@ -2,7 +2,7 @@
 
 Highlights:
 - Examine the predictor and response variables by building a linear regression model using  ```lm()``` and ```plot()```
-- Check influential and leverage points with ```cook.distance``` 
+- Check influential and leverage points with ```rstandard```, ```lm.influence```, and ```cook.distance``` 
 - Adding quadratic terms and remove outliers to improve the model.
 - Build a standard deviation table using dplyr and Scale-Location model to check for variance changes.
 - Transform the data to further improve the model and build a prediction table using ```predict.lm```
@@ -16,6 +16,8 @@ Highlights:
 
 
 ## Airfare Model
+_Objective: Identify the model's leverage points, check the diagnostic plots, remove the "bad" points to improve the model._
+
 #### Step 1: Build a regression model using ```lm()```
 ```
 airfares <- read.delim("airfares.txt")
@@ -74,6 +76,8 @@ summary(fare2.mod)
 #
 
 ## Coffee Model
+_Objective: Check the diagnostic plots and variance changes, transformed the data to improve the model._
+
 #### Step 1: Build a slr using ```lm()``` and compute 95% prediction intervals for Y = Customers when x=Baristas=2 and when x=Baristas=8
 ```{r}
 coffee <- read.delim("coffee.txt")
