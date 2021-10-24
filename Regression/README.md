@@ -19,6 +19,7 @@ Highlights:
 Problem: The data gives the one-way airfare (in US dollars) and distance (in miles) from city A to 17 other cities in the US. A business analyst concluded the regression coefficient of the predictor variable, Distance is highly statistically significant and the model explains 99.4% of the variability in the Y-variable, Fare. Thus model is a highly effective model for both understanding the effects of Distance on Fare and for predicting future values of Fare given the value of the predictor variable, Distance.
 
 _Objective: Provide a detailed critique of the byusiness analyst's conlusion. Identify the model's leverage points, check the diagnostic plots, remove the "bad" points to improve the model._
+
 ![1](https://user-images.githubusercontent.com/62857660/138603580-15145b52-0f8b-469f-8d7b-0fd82593f9d1.JPG)
 
 
@@ -83,6 +84,7 @@ summary(fare2.mod)
 Prblem: A typical Starbucks location has 1 or 2 baristas making drinks. The company is considering opening larger cafes with more machines and more baristas. The data contains 53 days of test data collected by Starbucks in a city where some larger stores are already open.  On each day they observed a different store during its busiest 20-minute period and recorded x the number of baristas working and Y the number of customers served. They want a regression model to predict the number of customers as a function of the number of baristas.  In particular they wish to predict the number of customers which can be served by 2 baristas and by 8 baristas.  
 
 _Objective: Check the diagnostic plots and variance changes, transformed the data to improve the model._
+
 ![2](https://user-images.githubusercontent.com/62857660/138603785-831c8e37-250d-4f69-a506-6ec507571294.JPG)
 
 
