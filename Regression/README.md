@@ -279,3 +279,28 @@ grid(lwd=1)
 
 ![image](https://user-images.githubusercontent.com/62857660/138610260-12179a8f-8723-4bfa-bf2d-66849ced3389.png)
 
+## Auto Model
+Problem: SLR exploration - Is there a relationship between the predictor and the response? How strong is the relationship between the predictor and the response? Is the relationship between the predictor and the response positive or negative? What is the predicted mpg associated with a horsepower of What are the associated 95 % confidence and prediction intervals?
+
+_Objective: Explain the findings from the SLR model_
+
+![6](https://user-images.githubusercontent.com/62857660/138610642-0dc2b632-3064-443c-be5e-a6414ad5f285.JPG)
+
+#### Step 1: Build the linear model. After running  ```summary()```, we see there is a relationship between the predictor and the response. P value of the model is less than 0.001 which means there is some statistical significance. The model shows that 60.59 percent of the variation in mpg (y) variable is due to the horsepower(x) variable in the data. The regression coefficient for horsepower is negative (-0.1578). Hence, there is negative relationship between the predictor and the response variable.
+```
+model.mpg <- lm(mpg ~ horsepower, data = Auto)
+summary(model.mpg)
+plot(mpg ~ horsepower, data = Auto, pch = 19, col = 'lightgreen')
+abline(model.mpg, col = 'darkblue', lwd = 2)
+```
+![image](https://user-images.githubusercontent.com/62857660/138617814-7632905c-b707-48e8-9963-31c94a446d45.png)
+
+![7](https://user-images.githubusercontent.com/62857660/138617783-4b86137c-a03b-495d-9127-8587137dd4ee.JPG)
+
+The predicted mpg associated with a horsepower 98 is 24.46708. The associated 95 % confidence interval is (23.97308 , 24.96108)
+```
+predict.lm(model.mpg, newdata = data.frame(horsepower = c(98)), interval = 'conf', level = 0.95) # Confidence Interval
+predict.lm(model.mpg, newdata = data.frame(horsepower = c(98)), interval = 'pred', level = 0.95) # Prediction Interval
+```
+
+
