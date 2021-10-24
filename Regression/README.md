@@ -16,6 +16,8 @@ Highlights:
 
 🏫[College Model](#college-model)
 
+🚕[Auto Model](#auto-model)
+
 
 ## Airfare Model
 Problem: The data gives the one-way airfare (in US dollars) and distance (in miles) from city A to 17 other cities in the US. A business analyst concluded the regression coefficient of the predictor variable, Distance is highly statistically significant and the model explains 99.4% of the variability in the Y-variable, Fare. Thus model is a highly effective model for both understanding the effects of Distance on Fare and for predicting future values of Fare given the value of the predictor variable, Distance.
