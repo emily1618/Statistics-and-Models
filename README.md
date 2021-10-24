@@ -29,13 +29,14 @@
 
 ### Improve Linear Regression Model and Identify Leverage Points
 
-- Examine the independent and dependent variables by building a linear regression model using  ```lm()```
-- Check influential and leverage points with ```cook.distance``` 
+- Examine the predictor and response variables by building a linear regression model using  ```lm()``` and ```plot()```
+- Check influential and leverage points with ```rstandard```, ```lm.influence```, and ```cook.distance``` 
 - Adding quadratic terms and remove outliers to improve the model.
 - Build a standard deviation table using dplyr and Scale-Location model to check for variance changes.
 - Transform the data to further improve the model and build a prediction table using ```predict.lm```
+- Check confidence level using ```confint()```
 - [View the project here ✔](https://github.com/xtenix88/Statistical-Learning-in-R/tree/main/Regression)
-- 
+
 ![000005 (1)](https://user-images.githubusercontent.com/62857660/138512572-8562c324-6acc-40c1-9600-c8672bb99d73.png)
 
 #
