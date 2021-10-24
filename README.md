@@ -5,7 +5,7 @@
 ## Table of Contents
 🍩 [Delicious treats with plot3d](#creating-delicious-treats-with-plot3d)
 
-📈  [Improve linear regression model and identify leverage points](#improve-linear-regression-model-and-identify-leverage-points)
+📈  [Improve regression model and identify leverage points](#improve-linear-regression-model-and-identify-leverage-points)
 
 🏠 [PCA with using the almanac](#principal-components-with-almanac-data)
 
