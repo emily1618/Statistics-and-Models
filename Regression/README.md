@@ -14,6 +14,8 @@ Highlights:
 
 ☕[Coffee Model](#coffee-model)
 
+🏫[College Model](#college-model)
+
 
 ## Airfare Model
 Problem: The data gives the one-way airfare (in US dollars) and distance (in miles) from city A to 17 other cities in the US. A business analyst concluded the regression coefficient of the predictor variable, Distance is highly statistically significant and the model explains 99.4% of the variability in the Y-variable, Fare. Thus model is a highly effective model for both understanding the effects of Distance on Fare and for predicting future values of Fare given the value of the predictor variable, Distance.
@@ -212,7 +214,7 @@ pairs(college[,1:10], pch= ".")
 ```
 ![image](https://user-images.githubusercontent.com/62857660/138609664-02b4640b-aeba-4b14-a263-5680707ba6ab.png)
 
-#### Step 2: Create boxplots to compare different variables
+#### Step 2: USe ```plot()``` to compare different variables
 ```
 plot(college$Private,college$Outstate,
      xlab = "Private",
@@ -232,7 +234,6 @@ plot(college$Elite,college$Outstate,
 
 #### Step 3: Create historgrams to examine the variables stat from acceptance rate to book cost to Phd percentage:
 ```
-par(mfrow=c(3,2))
 hist(college$Apps, breaks = 10, main = "Number of Applications Received", col = 2)
 hist(college$Accept, breaks = 10, main = "Number of Applications Accepted", col = 3)
 hist(college$Enroll, breaks = 10, main = "Number of New Students Enrolled", col = 4)
@@ -258,7 +259,6 @@ college[college$Grad.Rate > 100,]
 
 There is a college that has a very high Student/Faculty Ratio compared to the other colleges in the data set
 ```
-hist(college$S.F.Ratio, breaks = 100, main = "Student/Faculty Ratio", col = 4)
 boxplot(college$S.F.Ratio)
 college[college$S.F.Ratio > 30,]
 ```
@@ -277,6 +277,9 @@ college[college$Apps > 30000,]
 Because a small p-value, we can reject the null and declare there is a relationship between applicant accepted and final enrollment. The model explains 83.11% of the variability of the response data around its mean.The higher this number, the better the model explains the data.
 ```
 enrollment <- lm(Enroll~Accept, data=college)
+plot(Enroll~Accept, data=college, col=4, pch=20, main='Regression for Enroll on Accepted')
+abline(lm(Enroll~Accept, data=college), col="red") 
+grid(lwd=1)
 ```
-![image](https://user-images.githubusercontent.com/62857660/138610174-b0d7c0eb-1a4e-4cf6-883b-12dd76530b34.png)
+![image](https://user-images.githubusercontent.com/62857660/138610260-12179a8f-8723-4bfa-bf2d-66849ced3389.png)
 
