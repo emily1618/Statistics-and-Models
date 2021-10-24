@@ -257,20 +257,14 @@ college[college$Grad.Rate > 100,]
 ```
 ![4](https://user-images.githubusercontent.com/62857660/138609987-77478cbe-6592-416f-9cc6-aebb520d6d18.JPG)
 
-There is a college that has a very high Student/Faculty Ratio compared to the other colleges in the data set
+Use ```boxplot``` to find outlier. After running the code, we can see there is a college that has a very high Student/Faculty Ratio compared to the other colleges in the data set. There is aslo one college received many more applications than the other colleges.
 ```
 boxplot(college$S.F.Ratio)
 college[college$S.F.Ratio > 30,]
-```
-![image](https://user-images.githubusercontent.com/62857660/138610088-15b4660c-963b-4c2a-a8cc-8ea9f8df9149.png)
 
-There is an extreme outlier: one college received many more applications than the other colleges.
-
-```
 boxplot(college$Apps)
 college[college$Apps > 30000,]
 ```
-![image](https://user-images.githubusercontent.com/62857660/138610124-a00fc16c-5d33-447d-85ad-5b3f6ef6baad.png)
 
 #### Step 5: Regression on different variables and provide a brief explanation on the findings
 
