@@ -309,7 +309,7 @@ predict.lm(model.mpg, newdata = data.frame(horsepower = c(98)), interval = 'conf
 predict.lm(model.mpg, newdata = data.frame(horsepower = c(98)), interval = 'pred', level = 0.95) # Prediction Interval
 ```
 #
-## 🎬 Playbill Model
+## Playbill Model
 Problem: The data contains the gross box office results for the current week  and the gross box office results for the previous week (i.e., October 3–10, 2004) boardway ticket sales. Test the null hypothesis against a two-sided alternative, use the fitted regression model to estimate the gross box office results with $400,000 in gross box office the previous week. Find a 95% prediction interval for the gross box office. Is $450,000 a feasible value for the gross box office results in the current week, for a production with $400,000 in gross box office the previous week?
 
 _objective: Test the null hypothese and explain the findings for the prediction intervals._
