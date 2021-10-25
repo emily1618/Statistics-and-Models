@@ -468,3 +468,4 @@ confint(df2.mod) ##CI's after adding the outliers
 ```
 ![image](https://user-images.githubusercontent.com/62857660/138620626-a7b323d5-1161-46b8-90e6-0b358e6d5326.png)
 
+[Back to Top](#table-of-content)
