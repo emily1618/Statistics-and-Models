@@ -60,7 +60,7 @@ plot(fare.mod)
 
 ![000005 (1)](https://user-images.githubusercontent.com/62857660/138492474-fe2ab316-ff91-4d60-a13f-a66fdc0f5485.png)
 
-#### Step 4: Remove the bad leverage points or outliers and add quadratic term:
+#### Step 4: Remove the bad leverage points or outliers and add quadratic term. On the Cook's distance plot, we discovered an another outlier/bad leverage point at 15. 
 ```
 fare2 <- filter(airfares, !(City %in% c(13,17)) ) #remove the outliers discovered in step 2
 fare2.mod <- lm(Fare~Distance, data=fare2)
@@ -71,7 +71,7 @@ fare2.mod <- lm(Fare ~ Distance + Distance2, data = fare2) #adding quadratic ter
 which.max((hatvalues(fare2.mod))) #checking the points again to show which # with the largest leverage statistics
 which(rstandard(fare2.mod)< -2 | rstandard(fare2.mod)>2) #shows which # will be the new outliers or bad leverage points
 
-subset(cooks.distance(fare2.mod), cooks.distance(fare2.mod) > 4/(nrow(fare2)- 2))#On the Cook's distance plot, we discovered an another outlier/bad leverage point at 15. 
+subset(cooks.distance(fare2.mod), cooks.distance(fare2.mod) > 4/(nrow(fare2)- 2)) 
 
 ```
 ![2](https://user-images.githubusercontent.com/62857660/138511042-60bd5ee7-8f5b-4d59-9080-9100879cb828.JPG)
