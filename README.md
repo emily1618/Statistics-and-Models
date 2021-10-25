@@ -29,12 +29,12 @@
 
 ### Regression Models and All The Goodies
 
-- Examine the predictor and response variables by building a linear regression model using lm() and plot() .
-- Check influential and leverage points with rstandard(), lm.influence(), and cook.distance().
+- Examine the predictor and response variables by building a linear regression model using ```lm()``` and ```plot()``` .
+- Check influential and leverage points with ```rstandard()```, ```lm.influence()```, and ```cook.distance()```.
 - Adding quadratic terms and remove outliers to improve the model.
 - Build a standard deviation table using dplyr and Scale-Location model to check for variance changes.
-- Transform the data to further improve the model and build a prediction table using predict.lm().
-- Explain the results in summary() and plot().
+- Transform the data to further improve the model and build a prediction table using ```predict.lm()```.
+- Explain the results in ```confint()```, ```summary()```, ```anova()``` and diagnostic plots.
 - [View the project here ✔](https://github.com/xtenix88/Statistical-Learning-in-R/tree/main/Regression)
 - 
 ![image](https://user-images.githubusercontent.com/62857660/138620216-07606ef3-dc43-46aa-8c91-a37393e12ed5.png)
