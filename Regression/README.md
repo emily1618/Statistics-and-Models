@@ -423,5 +423,23 @@ matplot(newx,conf,type='l', add=T, lty='longdash',col= c('black','red','red'))
 ```
 ![image](https://user-images.githubusercontent.com/62857660/138619687-dcc09505-577b-4736-87db-9b57c8acf421.png)
 
-#
+#### Step 4: Interpret the dianogistic model and observe any influential points. The first plot of residuals vs fitted shows that the residual variance is not constant: the residuals become more spread out for larger values of x. Scale Location plot shows Residuals are wider spread at the end of the plot than in the beginning. Normal Q-Q plot shows that the residuals are mostly normally distributed, with some points departed little off in the beginning of the line.  In Residuals vs Leverage plot, we would not be concerned too much as though we can see the same issues from First Plot about observations numbered as 26, 36, 179 because the data is within Cook's distance.Although there is one leverage point, we do not see any influential outliers. At this point, we need to be a little careful of that point but it's not much alarming as diagnostic plots show the same.
+
+```
+par(mfrow = c(2,2))
+plot(youtube.mod, col = 'Light Blue', pch = 19) 
+
+#Leverage and standardized residuals table
+table <- data.frame(Case = 1:nrow(marketing), youtube = marketing$youtube,
+                    sales = marketing$sales,
+                    Residuals = youtube.mod$residuals,
+                    leverage = lm.influence(youtube.mod)$hat,
+                    StdResiduals = rstandard(youtube.mod))
+                    
+leverage_points <- subset(table, leverage > (4/nrow(marketing)))
+outliers <- subset(leverage_points, abs(StdResiduals) > 2)
+```
+
+![image](https://user-images.githubusercontent.com/62857660/138620381-60d0e312-e56c-4afc-8a87-62b05d0ba824.png)
+
 
