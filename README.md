@@ -5,7 +5,7 @@
 ## Table of Contents
 🍩 [Delicious treats with plot3d](#creating-delicious-treats-with-plot3d)
 
-📈  [Regression model and all the goodies](#regression-model-and-all-the-goodies)
+📈  [Regression models and all the goodies](#regression-models-and-all-the-goodies)
 
 🏠 [PCA with using the almanac](#principal-components-with-almanac-data)
 
