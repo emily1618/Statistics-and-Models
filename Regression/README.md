@@ -372,7 +372,7 @@ summary(model.playbill)
 ## Marketing Model
 Problem: A large company comprised of many business units is studying the impact of advertising on sales revenues. An employee in accounting says "There is a significant relationship between sales revenue and money spent advertising on YouTube."   An employee in marketing claims that "For every $50 we spend on YouTube advertisements, we make an extra thousand in sales revenue!" Are those statements valid claims?
 
-_Objective: Fit a SLR model, explain the results from coeffient and CI to intepret, and confirm/reject the employee's claims. 
+_Objective: Fit a SLR model, explain the results from coeffient and confidence intervals, and confirm/reject the employee's claims._ 
 
 #### Step 1: Interpret the coefficients in terms of the model.  The intercept estimate is 8.439112 and the coefficient is 0.047537. This means for every $1000 spent on Youtube advertisements, $47.54 extra is made in sales revenue. The intercept represents the average value of Sales when Youtube advertisement expenditure is 0. "There is a significant relationship between sales revenue and money spent advertising on YouTube."  is a valid statement because the p-value of the slope is less than 0.01. "For every $50 we spend on YouTube advertisements, we make an extra thousand in sales revenue!" is not a valid claim. For every $50 spent on youtube advertisements, the extra amount made in sales revenue is $50 x 0.047537 = $2.37685.
 
