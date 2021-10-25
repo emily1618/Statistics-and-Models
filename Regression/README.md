@@ -18,6 +18,8 @@ Highlights:
 
 🚕[Auto Model](#auto-model)
 
+🎬[Playbill Model](#playbill-model)
+
 
 ## Airfare Model
 Problem: The data gives the one-way airfare (in US dollars) and distance (in miles) from city A to 17 other cities in the US. A business analyst concluded the regression coefficient of the predictor variable, Distance is highly statistically significant and the model explains 99.4% of the variability in the Y-variable, Fare. Thus model is a highly effective model for both understanding the effects of Distance on Fare and for predicting future values of Fare given the value of the predictor variable, Distance.
@@ -307,7 +309,7 @@ predict.lm(model.mpg, newdata = data.frame(horsepower = c(98)), interval = 'conf
 predict.lm(model.mpg, newdata = data.frame(horsepower = c(98)), interval = 'pred', level = 0.95) # Prediction Interval
 ```
 #
-## Playbill Model
+## 🎬 Playbill Model
 Problem: The data contains the gross box office results for the current week  and the gross box office results for the previous week (i.e., October 3–10, 2004) boardway ticket sales. Test the null hypothesis against a two-sided alternative, use the fitted regression model to estimate the gross box office results with $400,000 in gross box office the previous week. Find a 95% prediction interval for the gross box office. Is $450,000 a feasible value for the gross box office results in the current week, for a production with $400,000 in gross box office the previous week?
 
 _objective: Test the null hypothese and explain the findings for the prediction intervals._
