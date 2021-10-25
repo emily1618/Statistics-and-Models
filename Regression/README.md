@@ -1,4 +1,4 @@
-# SLR Model, Model Improvement, Leverage Points/Outliers, Confidence Level, and Prediction Intervals
+# Regression Model, Model Improvement, Leverage Points, Confidence Level, and Prediction Intervals
 
 Highlights:
 - Examine the predictor and response variables by building a linear regression model using  ```lm()``` and ```plot()``` .
