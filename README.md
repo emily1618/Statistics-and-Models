@@ -5,7 +5,7 @@
 ## Table of Contents
 🍩 [Delicious treats with plot3d](#creating-delicious-treats-with-plot3d)
 
-📈  [Improve regression model and identify leverage points](#improve-linear-regression-model-and-identify-leverage-points)
+📈  [Regression model and all the goodies](#regression-model-and-all-the-goodies)
 
 🏠 [PCA with using the almanac](#principal-components-with-almanac-data)
 
@@ -27,14 +27,14 @@
 
 #
 
-### Improve Linear Regression Model and Identify Leverage Points
+### Regression Models and All The Goodies
 
-- Examine the predictor and response variables by building a linear regression model using  ```lm()``` and ```plot()```
-- Check influential and leverage points with ```rstandard```, ```lm.influence```, and ```cook.distance``` 
+- Examine the predictor and response variables by building a linear regression model using lm() and plot() .
+- Check influential and leverage points with rstandard(), lm.influence(), and cook.distance().
 - Adding quadratic terms and remove outliers to improve the model.
 - Build a standard deviation table using dplyr and Scale-Location model to check for variance changes.
-- Transform the data to further improve the model and build a prediction table using ```predict.lm```
-- Check confidence level using ```confint()```
+- Transform the data to further improve the model and build a prediction table using predict.lm().
+- Explain the results in summary() and plot().
 - [View the project here ✔](https://github.com/xtenix88/Statistical-Learning-in-R/tree/main/Regression)
 - 
 ![image](https://user-images.githubusercontent.com/62857660/138620216-07606ef3-dc43-46aa-8c91-a37393e12ed5.png)
