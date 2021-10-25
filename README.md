@@ -36,8 +36,8 @@
 - Transform the data to further improve the model and build a prediction table using ```predict.lm```
 - Check confidence level using ```confint()```
 - [View the project here ✔](https://github.com/xtenix88/Statistical-Learning-in-R/tree/main/Regression)
-
-![000005 (1)](https://user-images.githubusercontent.com/62857660/138512572-8562c324-6acc-40c1-9600-c8672bb99d73.png)
+- 
+![image](https://user-images.githubusercontent.com/62857660/138620216-07606ef3-dc43-46aa-8c91-a37393e12ed5.png)
 
 #
 
