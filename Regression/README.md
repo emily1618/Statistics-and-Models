@@ -281,6 +281,8 @@ grid(lwd=1)
 
 ![image](https://user-images.githubusercontent.com/62857660/138610260-12179a8f-8723-4bfa-bf2d-66849ced3389.png)
 
+#
+
 ## Auto Model
 Problem: SLR exploration - Is there a relationship between the predictor and the response? How strong is the relationship between the predictor and the response? Is the relationship between the predictor and the response positive or negative? What is the predicted mpg associated with a horsepower of What are the associated 95 % confidence and prediction intervals?
 
@@ -304,5 +306,61 @@ The predicted mpg associated with a horsepower 98 is 24.46708. The associated 95
 predict.lm(model.mpg, newdata = data.frame(horsepower = c(98)), interval = 'conf', level = 0.95) # Confidence Interval
 predict.lm(model.mpg, newdata = data.frame(horsepower = c(98)), interval = 'pred', level = 0.95) # Prediction Interval
 ```
+#
+## Playbill Model
+Problem: The data contains the gross box office results for the current week  and the gross box office results for the previous week (i.e., October 3–10, 2004) boardway ticket sales. Test the null hypothesis against a two-sided alternative, use the fitted regression model to estimate the gross box office results with $400,000 in gross box office the previous week. Find a 95% prediction interval for the gross box office. Is $450,000 a feasible value for the gross box office results in the current week, for a production with $400,000 in gross box office the previous week?
 
+_objective: Test the null hypothese and explain the findings for the prediction intervals._
 
+![8](https://user-images.githubusercontent.com/62857660/138618145-ddb733e1-ebd0-4c94-b263-599f17a3bff2.JPG)
+
+#### Step 1: Test the null hypothesis Ho: beta_0 = 10000 against a two-sided alternative.  The P value is 0.75 which is very large compared to the significance level of 0.05. In addition, 10,000 falls under the Confidence Interval level calculated using both first and the second method. Hence, we fail to reject the null hypothesis of beta_0 = 10000.
+```
+x <- playbill.dat$LastWeek; y <- playbill.dat$CurrentWeek ;
+n <- length(x)
+xbar <- mean(x)
+ybar <- mean(y)
+SXX <- sum((x-xbar)^2)                    # Sum of squares of differences between X and mean X value
+SXY <- sum((x-xbar)*(y-ybar))             # Sum of squares of differences between X & xbar and Y and ybar         
+beta1 <- SXY/SXX                          # Slope
+beta0 <- ybar - beta1*xbar                # Y-Intercept
+y_hat <- beta0 + beta1 * x                # Individual values for the regression line
+SSE <-  RSS <- sum((y - y_hat)^2)         # Sum of Squared Error 
+S <- sqrt(SSE/(n-2))                      # Standard deviation
+SST <- sum((y - ybar)^2)                  # Total Variation
+SSR <- sum((y_hat - ybar)^2)              # Regression Sum of Square
+R_sq <- SSR/SST                           # R squared  
+SE_beta0 <- S* sqrt(1/n + xbar^2/SXX)     # Standard Error for Y-intercept
+
+#First Method to find the CI for Intercept
+error_margin <- qt(1 - 0.05/2, df = n-2) * SE_beta0
+Upper_CI <- beta0 + error_margin
+Lower_CI <- beta0 - error_margin
+c(Lower_CI, Upper_CI)                    
+
+#Second Method                            
+confint(model.playbill, "(Intercept)", level = 0.95)
+
+#T stat 
+t_stat <- (beta0 - 10000)/ SE_beta0
+p_value <- 2 * pt(abs(t_stat), n-2, lower.tail = F)
+p_value
+```
+![8](https://user-images.githubusercontent.com/62857660/138618262-bf7cb643-6b4e-4339-8c94-0621b0da4144.JPG)
+
+#### Step 2: Is $450,000 a feasible value for the gross box office results in the current week, for a production with $400,000 in gross box office the previous week? $450,000 is not a feasible value for the gross box office results in the current week because the amount falls outside the 95 percent prediction interval for a production with $400,000. In other words, we are 95 percent confident that the value of the gross box office results in the current week would be in between 3599832.8 and 439442.2.As it can be seen in the plot, the 'x' mark that represents the point(400000, 450000) falls OUTSIDE the red PREDICTION INTERVAL LINE.
+```
+predict.lm(model.playbill, data.frame(LastWeek = 400000), interval = 'pred', level = 0.95)
+
+plot(CurrentWeek ~ LastWeek, data = playbill.dat, pch = 19, col = 'green')
+xvec <- seq(min(playbill.dat$LastWeek), max(playbill.dat$LastWeek), by =  10000)
+matplot(xvec, predict.lm(model.playbill, newdata = data.frame(LastWeek = xvec), interval = 'pred', level = 0.95), col = c('black', rep('red',2)), type = 'l', add = T)
+matplot(400000, 450000, pch = 4, add = T, col = 'black')
+```
+![image](https://user-images.githubusercontent.com/62857660/138618345-bed0006c-33bc-436a-b202-e37354ea560c.png)
+
+#### Step 3: Some promoters of Broadway plays use the prediction rule that next week’s gross box office results will be equal to this week’s gross box office results. R SQUARED is 99.66%, the model explains that 99.66% of the VARIATION in current week's ticket sales is explained by last week's ticket sales. The prediction rule seems appropriate to be used for this case. There is a STRONG POSITVE LINEAR relationship between current week's and last week's ticket sales. The plot also shows the same.
+```
+summary(model.playbill)
+```
+![8](https://user-images.githubusercontent.com/62857660/138618459-cfa3b5f6-e4ae-4a4f-b1bb-1f51b2719088.JPG)
