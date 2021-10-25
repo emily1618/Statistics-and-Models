@@ -1,6 +1,6 @@
 # Regression Model, Model Improvement, Leverage Points, Confidence Level, and Prediction Intervals
 
-Highlights:
+_Highlights:_
 - Examine the predictor and response variables by building a linear regression model using  ```lm()``` and ```plot()``` .
 - Check influential and leverage points with ```rstandard()```, ```lm.influence()```, and ```cook.distance()```.
 - Adding quadratic terms and remove outliers to improve the model.
