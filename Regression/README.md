@@ -6,7 +6,7 @@ Highlights:
 - Adding quadratic terms and remove outliers to improve the model.
 - Build a standard deviation table using dplyr and Scale-Location model to check for variance changes.
 - Transform the data to further improve the model and build a prediction table using ```predict.lm()```.
-- Explain the results in ```summary()``` and ```plot()```.
+- Explain the results in ```confint()```, ```summary()```, ```anova()``` and diagnostic plots..
 
 
 ## Table of Content
