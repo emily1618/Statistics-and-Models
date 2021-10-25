@@ -348,7 +348,7 @@ t_stat <- (beta0 - 10000)/ SE_beta0
 p_value <- 2 * pt(abs(t_stat), n-2, lower.tail = F)
 p_value
 ```
-![8](https://user-images.githubusercontent.com/62857660/138618262-bf7cb643-6b4e-4339-8c94-0621b0da4144.JPG)
+![8](https://user-images.githubusercontent.com/62857660/138618692-aa93f1f6-cb0b-4d20-a815-211c0aa66497.jpeg)
 
 #### Step 2: Is $450,000 a feasible value for the gross box office results in the current week, for a production with $400,000 in gross box office the previous week? $450,000 is not a feasible value for the gross box office results in the current week because the amount falls outside the 95 percent prediction interval for a production with $400,000. In other words, we are 95 percent confident that the value of the gross box office results in the current week would be in between $359,832 and $439,442.As it can be seen in the plot, the 'x' mark that represents the point(400000, 450000) falls OUTSIDE the red PREDICTION INTERVAL LINE.
 ```
