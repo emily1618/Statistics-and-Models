@@ -208,6 +208,8 @@ table_predict
 #
 
 ## College Model
+[Back to Top](#table-of-content)
+
 Problem: The data contains a number of variables for 777 different universities and colleges in the US. Examine the numerical summary of the variables in the data set and create a new qualitative variable to check the proportion of students coming from the top 10 % of their high school classes exceeds 50 %. 
 
 _Objective: Provide a summary for the variables in the dataset. Using pairs scatterplot matrix, historgram and boxplots to explore the data._
@@ -289,6 +291,8 @@ grid(lwd=1)
 #
 
 ## Auto Model
+[Back to Top](#table-of-content)
+
 Problem: SLR exploration - Is there a relationship between the predictor and the response? How strong is the relationship between the predictor and the response? Is the relationship between the predictor and the response positive or negative? What is the predicted mpg associated with a horsepower of What are the associated 95 % confidence and prediction intervals?
 
 _Objective: Explain the findings from the SLR model_
@@ -322,6 +326,8 @@ plot(mpg.mod, col = 'Light Blue', pch = 19)
 
 #
 ## Playbill Model
+[Back to Top](#table-of-content)
+
 Problem: The data contains the gross box office results for the current week  and the gross box office results for the previous week (i.e., October 3–10, 2004) boardway ticket sales. Test the null hypothesis against a two-sided alternative, use the fitted regression model to estimate the gross box office results with $400,000 in gross box office the previous week. Find a 95% prediction interval for the gross box office. Is $450,000 a feasible value for the gross box office results in the current week, for a production with $400,000 in gross box office the previous week?
 
 _objective: Test the null hypothese and explain the findings for the prediction intervals._
@@ -381,6 +387,8 @@ summary(model.playbill)
 
 #
 ## Marketing Model
+[Back to Top](#table-of-content)
+
 Problem: A large company comprised of many business units is studying the impact of advertising on sales revenues. An employee in accounting says "There is a significant relationship between sales revenue and money spent advertising on YouTube."   An employee in marketing claims that "For every $50 we spend on YouTube advertisements, we make an extra thousand in sales revenue!" Are those statements valid claims?
 
 _Objective: Fit a SLR model, explain the results from coeffient and confidence intervals, and confirm/reject the employee's claims._ 
