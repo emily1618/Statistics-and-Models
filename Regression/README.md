@@ -442,4 +442,19 @@ outliers <- subset(leverage_points, abs(StdResiduals) > 2)
 
 ![image](https://user-images.githubusercontent.com/62857660/138620381-60d0e312-e56c-4afc-8a87-62b05d0ba824.png)
 
+#### Step 5: Create an invalid model and make a crazy claim! The two influential points of the second model have changed the confidence interval of slope and intercept significantly in comparison to the first model. The CI for both Slope and Intercept became WIDER. What crazy claim could the marketing employee make based on this invalid model?One crazy claim could be "Push one to two big marketing campaigns with the biggest budget, you "MIGHT" get the biggest sale on that bet!
+```
+#Adding in outliers
+df2 <- data.frame(
+x = c(marketing$youtube, 500, 600),
+y = c(marketing$sales, 80, 100))
+
+#Second Model
+df2.mod <- lm(y ~ x, data = df2)
+plot(df2.mod, col = 'Light Blue', pch = 19)
+
+confint(youtube.mod) ## CI's for the first model
+confint(df2.mod) ##CI's after adding the outliers
+```
+![image](https://user-images.githubusercontent.com/62857660/138620626-a7b323d5-1161-46b8-90e6-0b358e6d5326.png)
 
