@@ -309,6 +309,15 @@ The predicted mpg associated with a horsepower 98 is 24.46708. The associated 95
 predict.lm(model.mpg, newdata = data.frame(horsepower = c(98)), interval = 'conf', level = 0.95) # Confidence Interval
 predict.lm(model.mpg, newdata = data.frame(horsepower = c(98)), interval = 'pred', level = 0.95) # Prediction Interval
 ```
+
+#### Step 2: Plot the diagnostic plots of the least squares regression fit and explain any potential problems. From the residuals vs fitted model: A strong pattern in the residuals indicates non-linearity in the data. This plot also suggests heteroscedasticity. Second Normal Q-Q plot shows the residuals are mostly normally distributed, with some points departed little off toward the end of the line. Scale location plot shows that the residuals do not have equal variance, which means the assumption homoscedasticity is not "valid". Moreover, the smooth fit line is not is not a straight flat line, which indicates non-linearity.  The points are within the Cook's distance in the Residuals vs Leverage model, from that fact, there seems to be no point that may be influential. We can see that some data points have high leverage and large residuals.
+```
+plot(mpg.mod, col = 'Light Blue', pch = 19)
+```
+![image](https://user-images.githubusercontent.com/62857660/138620198-c5fa47d0-3f66-471a-a329-a6fa4c2132de.png)
+
+
+
 #
 ## Playbill Model
 Problem: The data contains the gross box office results for the current week  and the gross box office results for the previous week (i.e., October 3–10, 2004) boardway ticket sales. Test the null hypothesis against a two-sided alternative, use the fitted regression model to estimate the gross box office results with $400,000 in gross box office the previous week. Find a 95% prediction interval for the gross box office. Is $450,000 a feasible value for the gross box office results in the current week, for a production with $400,000 in gross box office the previous week?
