@@ -14,12 +14,13 @@ Highlights:
 
 ☕[Coffee Model](#coffee-model)
 
+🎬[Playbill Model](#playbill-model)
+
+💯[Marketing Model](#marketing-model)
+
 🏫[College Model](#college-model)
 
 🚕[Auto Model](#auto-model)
-
-🎬[Playbill Model](#playbill-model)
-
 
 ## Airfare Model
 Problem: The data gives the one-way airfare (in US dollars) and distance (in miles) from city A to 17 other cities in the US. A business analyst concluded the regression coefficient of the predictor variable, Distance is highly statistically significant and the model explains 99.4% of the variability in the Y-variable, Fare. Thus model is a highly effective model for both understanding the effects of Distance on Fare and for predicting future values of Fare given the value of the predictor variable, Distance.
@@ -366,3 +367,52 @@ matplot(400000, 450000, pch = 4, add = T, col = 'black')
 summary(model.playbill)
 ```
 ![8](https://user-images.githubusercontent.com/62857660/138618459-cfa3b5f6-e4ae-4a4f-b1bb-1f51b2719088.JPG)
+
+#
+## Marketing Model
+Problem: A large company comprised of many business units is studying the impact of advertising on sales revenues. An employee in accounting says "There is a significant relationship between sales revenue and money spent advertising on YouTube."   An employee in marketing claims that "For every $50 we spend on YouTube advertisements, we make an extra thousand in sales revenue!" Are those statements valid claims?
+
+_Objective: Fit a SLR model, explain the results from coeffient and CI to intepret, and confirm/reject the employee's claims. 
+
+#### Step 1: Interpret the coefficients in terms of the model.  The intercept estimate is 8.439112 and the coefficient is 0.047537. This means for every $1000 spent on Youtube advertisements, $47.54 extra is made in sales revenue. The intercept represents the average value of Sales when Youtube advertisement expenditure is 0. "There is a significant relationship between sales revenue and money spent advertising on YouTube."  is a valid statement because the p-value of the slope is less than 0.01. "For every $50 we spend on YouTube advertisements, we make an extra thousand in sales revenue!" is not a valid claim. For every $50 spent on youtube advertisements, the extra amount made in sales revenue is $50 x 0.047537 = $2.37685.
+
+```
+youtube_model = lm(sales ~ youtube, data = marketing)
+summary(youtube_model)
+```
+![9](https://user-images.githubusercontent.com/62857660/138619394-26f1a582-3cc3-48d6-ba0a-ce33043e13c2.JPG)
+
+#### Step 2: 99% confidence interval would be wider than the ones in the dataframe. As we can see from the dataframe: 90% confidence interval for the slope is (0.04309018, 0.05198310) and 95% confidence interval for the slope is (0.04223072, 0.05284256). However, 99% confidence interval for the slope is (0.04053867, 0.05453461). So, 93% confidence interval for the slope will be narrower than 95 but wider than 90% CI. Also the case is same the intercept too. Therefore, we can conclude that HIGHER the percentage, WIDER the confidence interval
+```
+S90 = confint(youtube_model, "youtube", level = 0.90)
+S95 = confint(youtube_model, "youtube", level = 0.95)
+I90 = confint(youtube_model, "(Intercept)", level = 0.90)
+I95 = confint(youtube_model, "(Intercept)", level = 0.95)
+
+df <- data.frame(CI=c(90,95,90,95),
+                 "Estimate" = c("Slope","Slope","Intercept","Intercept"),
+                 "Lower Bound" = c(S90[1],S95[1],I90[1],I95[1]),
+                 "Upper Bound" = c(S90[2],S95[2],I90[2],I95[2]))
+```
+![9](https://user-images.githubusercontent.com/62857660/138619530-8d61492f-c4f6-4b86-a5f2-3f43142e649e.JPG)
+
+#### Step 3: Make a scatter plot of the data and add curves for the fitted regression line, the boundaries of a 99% confidence interval for the regression line, and the boundaries of a 99% prediction interval for `sales`.
+```
+plot(sales ~ youtube, data = marketing, pch=16,col="grey50"); grid()
+abline(youtube_model)
+newx = seq(min(marketing$youtube),max(marketing$youtube),0.1)
+pred = predict.lm(youtube_model,
+                  newdata = data.frame(youtube = newx),
+                  interval = 'pred',
+                  level = 0.99)
+conf = predict.lm(youtube_model,
+                  newdata = data.frame(youtube = newx),
+                  interval = 'conf',
+                  level = 0.99)
+matplot(newx,pred,type='l', add=T, lty='twodash',col= c('black','blue','blue'))
+matplot(newx,conf,type='l', add=T, lty='longdash',col= c('black','red','red'))
+```
+![image](https://user-images.githubusercontent.com/62857660/138619687-dcc09505-577b-4736-87db-9b57c8acf421.png)
+
+#
+
