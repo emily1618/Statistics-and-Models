@@ -34,7 +34,7 @@ _Objective: Provide a detailed critique of the byusiness analyst's conlusion. Id
 airfares <- read.delim("airfares.txt")
 fare.mod <- lm(Fare~Distance, data=airfares)
 ```
-#### Step 2: Check for leverage points using standardized residual table + cook distance:
+#### Step 2: Check for leverage points, outliers and influential points using standardized residual table + cook distance:
 ```
 table <- data.frame(Case = 1:nrow(airfares), 
                     Fare = airfares$Fare,
