@@ -1,4 +1,4 @@
-# Regression Models,Data Transformation, Leverage Points, Confidence Level, and Prediction Intervals
+# Regression Models, Data Transformation, Leverage Points, Confidence Level, and Prediction Intervals
 
 _Highlights:_
 - Examine the predictor and response variables by building a linear regression model using  ```lm()``` and ```plot()``` .
