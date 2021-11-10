@@ -48,7 +48,9 @@
 
 ### K Nearest Neighbor
 - Using KNN as an alternative approach to simple linear regression.
+- Predict result by choosing differnet K values. 
 - Write a loop to run KNN method on every observation.
 - [View the project here ✔](https://github.com/xtenix88/Statistical-Learning-in-R/tree/main/K-Nearest-Neighbor)
-![image](https://user-images.githubusercontent.com/62857660/141167336-ea243dd5-5eae-4f53-b74a-8bd6199a56f4.png)
+
+![image](https://user-images.githubusercontent.com/62857660/141167518-59d9cb8d-aa4c-40f7-81ec-072f54e3b4f7.png)
 
