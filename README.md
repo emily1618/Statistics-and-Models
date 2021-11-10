@@ -11,7 +11,7 @@
 
 🐧 [Clusters with penguin dataset](#how-many-clusters-of-penguin-cuteness)
 
-🏘 [K Nearest Neighbor](#knn)
+🏘 [K Nearest Neighbor](#k-nearest-neighbor)
 
 #
 
@@ -46,5 +46,9 @@
 ### How Many Clusters of Penguin Cuteness
 - Editing...
 
-### KNN
-- Editing...
+### K Nearest Neighbor
+- Using KNN as an alternative approach to simple linear regression.
+- Write a loop to run KNN method on every observation.
+- [View the project here ✔](https://github.com/xtenix88/Statistical-Learning-in-R/tree/main/K-Nearest-Neighbor)
+![image](https://user-images.githubusercontent.com/62857660/141167336-ea243dd5-5eae-4f53-b74a-8bd6199a56f4.png)
+
