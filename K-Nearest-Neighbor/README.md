@@ -120,5 +120,5 @@ for(i in 1:n){
 
 lines(advertising$TV, yhat, col=6, lwd=2)
 ```
-![image](https://user-images.githubusercontent.com/62857660/141165852-ca73adf2-9e2e-4c7d-9299-5ae910456bf0.png)
+![image](https://user-images.githubusercontent.com/62857660/141167636-a09652fe-57e9-46a1-a7df-d3a1248b3def.png)
 
