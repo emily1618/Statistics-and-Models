@@ -40,16 +40,18 @@ result <- NULL
 
 for (i in 1:nrow(data)) {
     gridwithdistance <-mutate(grid.dat,D=sqrt((X-data$x[i])^2+(Y-data$y[i])^2))
+    
     #find the top 3
     votes <- slice_min(gridwithdistance, D, n=k) 
-    #vote to get blue or orange
+   
+   #vote to get blue or orange
     answer <- ifelse(sum(votes=='blue')>= ((k+1)/2),'blue','orange')
-    #store the winner in a vector called result
+    
+    #store the winner in a vector
     result[i] <- answer
   }
 
-#result #list of all winner color for each set of point
-
+#list of all winner color for each set of point
 plot(data, xlab="X", ylab="Y", pch = 20, cex = .5, col=result)
 points(grid.dat[1:6,],pch='o',cex=1.8, col="blue", lwd = 4)
 points(grid.dat[7:12,],pch='o',cex =1.8, col="orange", lwd =4)
