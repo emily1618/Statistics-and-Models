@@ -12,7 +12,7 @@ _Highlights:_
 💹 [Predict the Sales](#predict-the-sales)
 
 ## Blue or Orange
-Problem: Reproduce the plot with the same grid points and the same 12 data points. Run KNN to reproduce the decison boundary. 
+Problem: Reproduce the plot below with the same grid points and the same 12 data points. Run KNN to reproduce the decison boundary. 
 
 _Objective: Using KNN method in R to observe what points the model picked._
 
