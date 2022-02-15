@@ -50,13 +50,10 @@
 - Using KNN as an alternative approach to simple linear regression.
 - Predict result by choosing differnet K values. 
 - Write a loop to run KNN method on every observation.
-- [View the project here ✔](https://github.com/xtenix88/Statistical-Learning-in-R/tree/main/K-Nearest-Neighbor)
-
-<br/>
-
+- [View the KNN statistic model here ✔](https://github.com/xtenix88/Statistical-Learning-in-R/tree/main/K-Nearest-Neighbor)
 - Using KNN in machine learning to predict flow patterns.
 - Hyperparameter tuning the model.
-- [View the project here ✔](https://github.com/xtenix88/Statistics-and-Models/blob/main/KNN_ML_Model.ipynb)
+- [View the KNN ML model here ✔](https://github.com/xtenix88/Statistics-and-Models/blob/main/KNN_ML_Model.ipynb)
 
 ![image](https://user-images.githubusercontent.com/62857660/141167518-59d9cb8d-aa4c-40f7-81ec-072f54e3b4f7.png)
 
