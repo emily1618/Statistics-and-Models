@@ -51,7 +51,9 @@
 - Predict result by choosing differnet K values. 
 - Write a loop to run KNN method on every observation.
 - [View the project here ✔](https://github.com/xtenix88/Statistical-Learning-in-R/tree/main/K-Nearest-Neighbor)
- <br />
+
+<br/>
+
 - Using KNN in machine learning to predict flow patterns.
 - Hyperparameter tuning the model.
 - [View the project here ✔](https://github.com/xtenix88/Statistics-and-Models/blob/main/KNN_ML_Model.ipynb)
