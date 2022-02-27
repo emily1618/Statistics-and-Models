@@ -20,4 +20,4 @@ with and without parameter optimization.
 
 • Discuss the results.
 
-![dna-concept-illustration_114360-5582](https://user-images.githubusercontent.com/62857660/155894400-4224753c-8649-4fed-ba99-a369c81fba29.jpg)
+![dna-concept-illustration_114360-5582](https://user-images.githubusercontent.com/62857660/155894426-43d677c5-3212-4635-8dcb-0b1ea69a2111.jpg)
