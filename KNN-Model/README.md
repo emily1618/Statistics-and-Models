@@ -19,3 +19,6 @@ Develop a python notebook that includes:
 with and without parameter optimization.
 
 • Discuss the results.
+
+
+![dna-concept-illustration_114360-5582](https://user-images.githubusercontent.com/62857660/155894373-5efda55d-19d5-443d-8813-487a6fcdb250.jpg)
