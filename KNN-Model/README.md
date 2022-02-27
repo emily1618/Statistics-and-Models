@@ -12,6 +12,7 @@ method to identify the predictor variable.
 Data: Data_Glioblastoma5Patients_SC.csv database
 
 Develop a python notebook that includes:
+
 • Exploratory Data Analysis. 
 
 • The ML technique required and the performance evaluation
