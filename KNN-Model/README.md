@@ -1,5 +1,9 @@
 #### Use the K-NN machine learning algorithm to Classify Single Cell RNA-seq in Glioblastoma patients.
 
+
+![dna-concept-illustration_114360-5582](https://user-images.githubusercontent.com/62857660/155894426-43d677c5-3212-4635-8dcb-0b1ea69a2111.jpg)
+
+
 ### Introduction:
 Recent advances in single-cell RNA sequencing technologies enable deep insights
 into cellular development, gene regulation, and phenotypic diversity by
@@ -19,5 +23,3 @@ Develop a python notebook that includes:
 with and without parameter optimization.
 
 • Discuss the results.
-
-![dna-concept-illustration_114360-5582](https://user-images.githubusercontent.com/62857660/155894426-43d677c5-3212-4635-8dcb-0b1ea69a2111.jpg)
