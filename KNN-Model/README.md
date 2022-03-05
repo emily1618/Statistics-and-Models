@@ -18,8 +18,13 @@ Data: Data_Glioblastoma5Patients_SC.csv database
 Develop a python notebook that includes:
 
 • Exploratory Data Analysis. 
+  - text
 
 • The ML technique required and the performance evaluation
 with and without parameter optimization.
+  - text
+  - text
 
 • Discuss the results.
+  - text 
+  - text
