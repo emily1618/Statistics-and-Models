@@ -13,9 +13,11 @@ computational approaches to extract the useful and valuable underlying biologica
 information of individual cells in heterogeneous biological populations. This will begin with a K-NN and later use a more advance deep learning
 method to identify the predictor variable.
 
-Data: Data_Glioblastoma5Patients_SC.csv database
+### Data: Data_Glioblastoma5Patients_SC.csv 
+- x rows and x columns
+- 
 
-Develop a python notebook that includes:
+### The process:
 
 • Exploratory Data Analysis. 
   - text
