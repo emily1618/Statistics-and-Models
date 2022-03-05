@@ -17,7 +17,7 @@ method to identify the predictor variable.
 - x rows and x columns
 - 
 
-### The process:
+### The Process:
 
 • Exploratory Data Analysis. 
   - text
@@ -27,6 +27,6 @@ with and without parameter optimization.
   - text
   - text
 
-• Discuss the results.
+### The result:
   - text 
   - text
