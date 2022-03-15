@@ -20,7 +20,7 @@ method to identify the predictor variable.
 
 ### The Process:
 
-- Exploratory Data Analysis. 
+Exploratory Data Analysis. 
   - After running `df['Classes'].value_counts()`, I see there is class imbalance problem, which I will address in a subsequent notebook. 
   - There are many columns, we can use feature importance and feature selection to narrow down the columns with minimal importance
 ```
@@ -30,7 +30,8 @@ feature_importances = np.zeros(X_train.shape[1])
 
 model = lgb.LGBMClassifier(objective='multiclass', boosting_type = 'goss', n_estimators = 10000, class_weight = 'balanced')
 ```
-    - Dropping columns with correlation > 0.90
+  - Dropping columns with correlation > 0.90
+  - 
 ```
 threshold = 0.90
 
@@ -41,9 +42,9 @@ upper = corr_matrix.where(np.triu(np.ones(corr_matrix.shape), k=1).astype(np.boo
 to_drop = [column for column in upper.columns if any(upper[column] > threshold)]
 
 print('There are %d columns to remove.' % (len(to_drop))
-````
+```
 
-- The ML technique required and the performance evaluation
+The ML technique required and the performance evaluation
 with and without parameter optimization.
   - Normalize the data
 ```
