@@ -44,8 +44,7 @@ to_drop = [column for column in upper.columns if any(upper[column] > threshold)]
 print('There are %d columns to remove.' % (len(to_drop))
 ```
 
-The ML technique required and the performance evaluation
-with and without parameter optimization.
+ML Steps
   - Normalize the data
 ```
 from sklearn.preprocessing import StandardScaler
@@ -61,7 +60,7 @@ X_test_scaled = scaler.transform(X_test)
 
 
 ### The result:
-  - Using a confusion matrix, classficiation report and accuracy score to evaluate your model
+Using a confusion matrix, classficiation report and accuracy score to evaluate your model
 `
 from sklearn.metrics import classification_report
 `
