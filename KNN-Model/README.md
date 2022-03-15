@@ -31,7 +31,7 @@ feature_importances = np.zeros(X_train.shape[1])
 model = lgb.LGBMClassifier(objective='multiclass', boosting_type = 'goss', n_estimators = 10000, class_weight = 'balanced')
 ```
   - Dropping columns with correlation > 0.90
-  - 
+  
 ```
 threshold = 0.90
 
