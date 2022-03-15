@@ -62,7 +62,7 @@ g_res.best_params_
   - Run the models
 
 
-### The result:
+### Evaluate the model:
 Using a confusion matrix, classficiation report and accuracy score to evaluate your model
 `
 from sklearn.metrics import classification_report
