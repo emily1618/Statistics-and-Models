@@ -25,22 +25,16 @@ Exploratory Data Analysis.
   - There are many columns, we can use feature importance and feature selection to narrow down the columns with minimal importance
 ```
 import lightgbm as lgb
-
 feature_importances = np.zeros(X_train.shape[1])
-
 model = lgb.LGBMClassifier(objective='multiclass', boosting_type = 'goss', n_estimators = 10000, class_weight = 'balanced')
 ```
   - Dropping columns with correlation > 0.90
   
 ```
 threshold = 0.90
-
 corr_matrix =pd.DataFrame(X_train).corr(method='pearson').abs()
-
 upper = corr_matrix.where(np.triu(np.ones(corr_matrix.shape), k=1).astype(np.bool))
-
 to_drop = [column for column in upper.columns if any(upper[column] > threshold)]
-
 print('There are %d columns to remove.' % (len(to_drop))
 ```
 
@@ -60,13 +54,9 @@ X_test_scaled = scaler.transform(X_test)
   - Hyperparameter tuning
 ```
 from sklearn.model_selection import GridSearchCV
-
 parameters_k = {"n_neighbors": range(1, 25)}
-
 gs = GridSearchCV(KNeighborsClassifier(), param_grid = parameters_k, verbose = 1, cv=10, n_jobs = -1)
-
 g_res = gs.fit(X_train, y_train)
-
 g_res.best_params_
 ```
   - Run the models
@@ -77,4 +67,6 @@ Using a confusion matrix, classficiation report and accuracy score to evaluate y
 `
 from sklearn.metrics import classification_report
 `
+![cm2](https://user-images.githubusercontent.com/62857660/158418627-64b7d5fa-4c1f-4708-80ed-fe17d097f987.png)
+
 
