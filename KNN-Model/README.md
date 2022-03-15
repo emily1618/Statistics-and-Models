@@ -58,6 +58,17 @@ X_test_scaled = scaler.transform(X_test)
   - Parameter optimization
   - ![acc](https://user-images.githubusercontent.com/62857660/158418298-32250b35-cd53-4eed-9c93-eafdb185426e.png)![acc2](https://user-images.githubusercontent.com/62857660/158418319-ea42d5a6-e05e-4544-a5a7-a9361839144a.png)
   - Hyperparameter tuning
+```
+from sklearn.model_selection import GridSearchCV
+
+parameters_k = {"n_neighbors": range(1, 25)}
+
+gs = GridSearchCV(KNeighborsClassifier(), param_grid = parameters_k, verbose = 1, cv=10, n_jobs = -1)
+
+g_res = gs.fit(X_train, y_train)
+
+g_res.best_params_
+```
   - Run the models
 
 
