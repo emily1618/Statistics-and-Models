@@ -55,6 +55,8 @@ X_train_scaled = scaler.transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 ```
   - Fit the data
+  - Parameter optimization
+  - ![acc](https://user-images.githubusercontent.com/62857660/158418298-32250b35-cd53-4eed-9c93-eafdb185426e.png)![acc2](https://user-images.githubusercontent.com/62857660/158418319-ea42d5a6-e05e-4544-a5a7-a9361839144a.png)
   - Hyperparameter tuning
   - Run the models
 
