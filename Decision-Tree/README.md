@@ -67,15 +67,18 @@ Comparision:
 - Use feature selection and fit the decision tree model with the resampled data.
 - Now let's compare the two models.
 ![download (2)](https://user-images.githubusercontent.com/62857660/159149823-14b6114e-8898-4eff-bcac-f1dd752607b7.png)
+
 ![download (3)](https://user-images.githubusercontent.com/62857660/159149830-6a6ae6b0-6a5c-45f8-8154-f20158b79d63.png)
 
 
 - Confusion matrix
 ![download (4)](https://user-images.githubusercontent.com/62857660/159149898-69d0ecf1-753d-4f08-8447-4949dbf4a4f2.png)
+
 ![download (5)](https://user-images.githubusercontent.com/62857660/159149900-9edc65d2-6d8b-48b6-be9f-06b34ffaf817.png)
 
 
 ![download (6)](https://user-images.githubusercontent.com/62857660/159149936-8c3264d6-dadc-49f9-a877-478b24d5b1c4.png)
+
 ![download (7)](https://user-images.githubusercontent.com/62857660/159149937-2c24bec7-9a7e-466b-aacc-3cf181094ded.png)
 
 
