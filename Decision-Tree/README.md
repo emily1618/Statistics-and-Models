@@ -63,6 +63,9 @@ df_resample['class'].value_counts()
 ```
 ![download (1)](https://user-images.githubusercontent.com/62857660/159149532-906c6d5c-ceb6-4dcb-b146-27288169a60d.png)
 
+Parameter Optimizer:
+- Using `GridSearchCV`. The best_params_ is {'max_depth': 8, 'max_leaf_nodes': 27, 'min_samples_leaf': 2}
+
 Comparision:
 
 - Use feature selection and fit the decision tree model with the resampled data.
