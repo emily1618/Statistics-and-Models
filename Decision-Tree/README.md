@@ -11,6 +11,7 @@ Propose a classification setting based on GBM scRNA-Seq data with decision tree 
 
 ### Data: 
 Data S1_Originaldata.csv consist of 444 rows and 16384 columns
+Source Link: http://gbmseq.org/
 
 ![Screenshot 2022-03-20 001351](https://user-images.githubusercontent.com/62857660/159149220-06f98cb9-f912-46a5-8289-5efeb4ffa05b.png)
 
@@ -99,6 +100,15 @@ The dataset has an imbalance problem, so I resample the data. After **data resam
 Parameter optimization didn't improve the model. In my case, the parameters actually decreased the accuracy score. I think if you need to improve the model further, then I will have to take a lot more time to experiment with the parameters. 
 
 My final thought is that resampling the data definitely help with the model accuracy. **However**, the model score seems **too good to be true**. This may be an **overfitting** issue after the data is resampled.
+
+#
+
+### R Markdown
+Link: http://web.tecnico.ulisboa.pt/susanavinga/GBM/
+
+### Reference
+Lopes, Marta B., Vinga, Susana Tracking intratumoral heterogeneity in glioblastoma via regularized classification of single-cell RNA-Seq data. 2020 https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-020-3390-4
+
 
 
 
